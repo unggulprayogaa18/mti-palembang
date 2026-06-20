@@ -443,7 +443,7 @@ export default function Home() {
               </span>
             </a>
           ))}
-          <a className="journalCard" href="#akses" id="akses">
+          <a className="journalCard" href="#akses">
             <small>Jurnal Berkala</small>
             <strong>
               AKSES Nusantara
@@ -456,6 +456,41 @@ export default function Home() {
             </span>
           </a>
         </aside>
+      </section>
+
+      <section className="wideShell aksesShowcase" id="akses">
+        <div className="aksesSurface">
+          <div className="aksesCopy">
+            <span>AKSES Nusantara</span>
+            <h2>Jurnal transportasi dengan tampilan editorial yang lebih kuat.</h2>
+            <p>
+              Area ini memakai aset AKSES resmi dengan background putih ber-grain halus, sehingga
+              tetap bersih seperti newsroom tapi punya aksen visual khas MTI.
+            </p>
+            <div className="aksesMeta">
+              <small>Edisi 36</small>
+              <small>Maret 2026</small>
+              <small>Transportasi Publik</small>
+            </div>
+            <a href="#newsletter">
+              Ikuti update AKSES
+              <ArrowRight size={15} aria-hidden="true" />
+            </a>
+          </div>
+          <div className="aksesVisual">
+            <img
+              className="aksesEdition"
+              src="/images/banner-akses-edisi-36.png"
+              alt="AKSES Nusantara Edisi 36 Maret 2026"
+            />
+            <img
+              className="aksesTransport"
+              src="/images/banner-akses-transport.png"
+              alt=""
+              aria-hidden="true"
+            />
+          </div>
+        </div>
       </section>
 
       <section className="wideShell newsSection" id="berita">
