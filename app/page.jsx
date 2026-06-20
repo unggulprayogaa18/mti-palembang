@@ -154,6 +154,8 @@ const regions = [
   }
 ];
 
+const signatureTags = ["Policy Radar", "Regional Pulse", "Data Watch", "Public Impact"];
+
 const catStyles = {
   Berita: { bg: "#ececf9", color: "#4647ae" },
   Sinergi: { bg: "#e6f0fc", color: "#2e6fd0" },
@@ -342,6 +344,57 @@ export default function Home() {
                 <i />
               </span>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="signatureSection" aria-label="Ciri khas newsroom MTI">
+        <div className="wideShell signatureGrid">
+          <div className="signatureCopy">
+            <span className="signatureKicker">MTI Signature Desk</span>
+            <h2>Ruang kurasi isu transportasi nasional.</h2>
+            <p>
+              Setiap kabar dibaca dari sudut kebijakan, wilayah, data, dan dampak publik agar
+              newsroom MTI terasa tajam, kredibel, dan punya identitas sendiri.
+            </p>
+            <div className="signatureTags" aria-label="Fokus editorial">
+              {signatureTags.map((tag) => (
+                <span key={tag}>{tag}</span>
+              ))}
+            </div>
+          </div>
+
+          <div className="signatureBoard" aria-hidden="true">
+            <div className="boardHeader">
+              <img src={IMG.logo} alt="" />
+              <span>
+                <strong>Transport Intelligence</strong>
+                <small>Policy - Region - Media</small>
+              </span>
+            </div>
+            <div className="routeMap">
+              <i className="routeLine lineOne" />
+              <i className="routeLine lineTwo" />
+              <i className="routeLine lineThree" />
+              <span className="routeNode nodeOne">Kebijakan</span>
+              <span className="routeNode nodeTwo">Wilayah</span>
+              <span className="routeNode nodeThree">Media</span>
+              <span className="routeNode nodeFour">Publik</span>
+            </div>
+            <div className="issueStack">
+              <span>
+                <strong>01</strong>
+                Prioritas transportasi nasional
+              </span>
+              <span>
+                <strong>02</strong>
+                Rekomendasi mudik dan logistik
+              </span>
+              <span>
+                <strong>03</strong>
+                Suara wilayah dan komunitas
+              </span>
+            </div>
           </div>
         </div>
       </section>

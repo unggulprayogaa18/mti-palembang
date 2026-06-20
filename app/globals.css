@@ -428,6 +428,259 @@ img {
   background: var(--sky);
 }
 
+.signatureSection {
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--line);
+  background: #f8faff;
+}
+
+.signatureSection::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(17, 46, 129, 0.08) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(17, 46, 129, 0.06) 1px, transparent 1px);
+  background-size: 42px 42px;
+  mask-image: linear-gradient(90deg, transparent, #000 18%, #000 82%, transparent);
+  pointer-events: none;
+}
+
+.signatureGrid {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(420px, 0.78fr);
+  align-items: center;
+  gap: 42px;
+  padding-top: 34px;
+  padding-bottom: 34px;
+}
+
+.signatureKicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 12px;
+  color: var(--violet);
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.signatureKicker::before {
+  content: "";
+  width: 24px;
+  height: 3px;
+  border-radius: 999px;
+  background: var(--sky);
+}
+
+.signatureCopy h2 {
+  max-width: 650px;
+  margin: 0;
+  color: var(--blue);
+  font-size: clamp(28px, 3.8vw, 48px);
+  font-weight: 800;
+  line-height: 1.02;
+  text-wrap: balance;
+}
+
+.signatureCopy p {
+  max-width: 620px;
+  margin: 18px 0 0;
+  color: #4a5174;
+  font-size: 15.5px;
+  line-height: 1.72;
+}
+
+.signatureTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-top: 22px;
+}
+
+.signatureTags span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 0 12px;
+  border: 1px solid #dbe1f2;
+  border-radius: 8px;
+  color: var(--blue);
+  background: rgba(255, 255, 255, 0.78);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.signatureBoard {
+  position: relative;
+  min-height: 308px;
+  overflow: hidden;
+  border: 1px solid rgba(17, 46, 129, 0.18);
+  border-radius: 16px;
+  color: var(--white);
+  background: var(--blue);
+  box-shadow: 0 24px 52px -32px rgba(17, 46, 129, 0.72);
+}
+
+.signatureBoard::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0, transparent 38%),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.08) 0 1px, transparent 1px 38px);
+  pointer-events: none;
+}
+
+.boardHeader {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 20px 22px 0;
+}
+
+.boardHeader img {
+  width: 44px;
+  height: 44px;
+  padding: 4px;
+  border-radius: 10px;
+  background: var(--white);
+}
+
+.boardHeader strong,
+.boardHeader small {
+  display: block;
+}
+
+.boardHeader strong {
+  color: var(--white);
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.boardHeader small {
+  margin-top: 4px;
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.routeMap {
+  position: relative;
+  z-index: 1;
+  height: 150px;
+  margin: 8px 22px 0;
+}
+
+.routeLine {
+  position: absolute;
+  height: 2px;
+  transform-origin: left center;
+  background: rgba(127, 176, 240, 0.9);
+}
+
+.lineOne {
+  top: 75px;
+  left: 46px;
+  width: 190px;
+  transform: rotate(-14deg);
+}
+
+.lineTwo {
+  top: 68px;
+  left: 202px;
+  width: 140px;
+  transform: rotate(20deg);
+}
+
+.lineThree {
+  top: 98px;
+  left: 108px;
+  width: 210px;
+  transform: rotate(8deg);
+  background: rgba(255, 255, 255, 0.44);
+}
+
+.routeNode {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 0 11px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 8px;
+  color: var(--white);
+  background: rgba(255, 255, 255, 0.12);
+  font-size: 11px;
+  font-weight: 800;
+  backdrop-filter: blur(8px);
+}
+
+.routeNode::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  margin-right: 7px;
+  border-radius: 999px;
+  background: #7fb0f0;
+  box-shadow: 0 0 12px #7fb0f0;
+}
+
+.nodeOne {
+  top: 22px;
+  left: 12px;
+}
+
+.nodeTwo {
+  top: 72px;
+  left: 128px;
+}
+
+.nodeThree {
+  top: 28px;
+  right: 28px;
+}
+
+.nodeFour {
+  right: 18px;
+  bottom: 8px;
+}
+
+.issueStack {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  gap: 1px;
+  margin-top: 2px;
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.issueStack span {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 42px;
+  padding: 0 22px;
+  color: rgba(255, 255, 255, 0.78);
+  background: rgba(255, 255, 255, 0.05);
+  font-size: 12.5px;
+  font-weight: 700;
+}
+
+.issueStack strong {
+  color: #9fc3ff;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+}
+
 .heroGrid {
   display: grid;
   grid-template-columns: 1.55fr 1fr;
@@ -1247,8 +1500,13 @@ img {
   }
 
   .heroGrid,
+  .signatureGrid,
   .mediaGrid {
     grid-template-columns: 1fr;
+  }
+
+  .signatureGrid {
+    gap: 28px;
   }
 
   .footerGrid {
@@ -1305,6 +1563,64 @@ img {
   .heroGrid {
     gap: 26px;
     padding-top: 24px;
+  }
+
+  .signatureGrid {
+    padding-top: 28px;
+    padding-bottom: 28px;
+  }
+
+  .signatureCopy h2 {
+    font-size: clamp(26px, 8vw, 36px);
+  }
+
+  .signatureBoard {
+    min-height: 330px;
+    border-radius: 14px;
+  }
+
+  .boardHeader {
+    padding-inline: 18px;
+  }
+
+  .routeMap {
+    height: 164px;
+    margin-inline: 18px;
+  }
+
+  .lineOne {
+    left: 20px;
+    width: 138px;
+  }
+
+  .lineTwo {
+    left: 126px;
+    width: 120px;
+  }
+
+  .lineThree {
+    left: 56px;
+    width: 176px;
+  }
+
+  .nodeOne {
+    left: 0;
+  }
+
+  .nodeTwo {
+    left: 78px;
+  }
+
+  .nodeThree {
+    right: 0;
+  }
+
+  .nodeFour {
+    right: 4px;
+  }
+
+  .issueStack span {
+    padding-inline: 18px;
   }
 
   .leadImage h1 {
