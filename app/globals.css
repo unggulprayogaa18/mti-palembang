@@ -432,18 +432,35 @@ img {
   position: relative;
   overflow: hidden;
   border-bottom: 1px solid var(--line);
-  background: #f8faff;
+  background:
+    radial-gradient(circle at 15% 18%, rgba(67, 130, 223, 0.12), transparent 28%),
+    radial-gradient(circle at 82% 34%, rgba(17, 46, 129, 0.1), transparent 30%),
+    linear-gradient(180deg, #ffffff 0%, #f7faff 100%);
 }
 
 .signatureSection::before {
   content: "";
   position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(90deg, rgba(17, 46, 129, 0.08) 1px, transparent 1px),
-    linear-gradient(180deg, rgba(17, 46, 129, 0.06) 1px, transparent 1px);
-  background-size: 42px 42px;
-  mask-image: linear-gradient(90deg, transparent, #000 18%, #000 82%, transparent);
+  right: -160px;
+  bottom: -180px;
+  width: 560px;
+  height: 560px;
+  border: 1px solid rgba(17, 46, 129, 0.1);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0) 48%, rgba(17, 46, 129, 0.08) 49%, rgba(255, 255, 255, 0) 50%);
+  pointer-events: none;
+}
+
+.signatureSection::after {
+  content: "";
+  position: absolute;
+  top: 34px;
+  right: 8%;
+  width: 34%;
+  height: 120px;
+  border-top: 2px solid rgba(67, 130, 223, 0.22);
+  border-radius: 50%;
+  transform: rotate(-8deg);
   pointer-events: none;
 }
 
@@ -519,20 +536,31 @@ img {
   position: relative;
   min-height: 308px;
   overflow: hidden;
-  border: 1px solid rgba(17, 46, 129, 0.18);
-  border-radius: 16px;
-  color: var(--white);
-  background: var(--blue);
-  box-shadow: 0 24px 52px -32px rgba(17, 46, 129, 0.72);
+  color: var(--blue);
 }
 
 .signatureBoard::before {
   content: "";
   position: absolute;
-  inset: 0;
+  inset: 12px 28px 18px 10px;
+  border-radius: 999px;
   background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0, transparent 38%),
-    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.08) 0 1px, transparent 1px 38px);
+    radial-gradient(circle at 34% 45%, rgba(67, 130, 223, 0.24), transparent 24%),
+    radial-gradient(circle at 78% 42%, rgba(17, 46, 129, 0.18), transparent 30%),
+    rgba(255, 255, 255, 0.72);
+  filter: blur(0.2px);
+  pointer-events: none;
+}
+
+.signatureBoard::after {
+  content: "";
+  position: absolute;
+  inset: 42px 18px 62px;
+  border: 2px solid rgba(17, 46, 129, 0.12);
+  border-left-color: transparent;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  transform: rotate(-10deg);
   pointer-events: none;
 }
 
@@ -542,15 +570,16 @@ img {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 20px 22px 0;
+  padding: 18px 22px 0;
 }
 
 .boardHeader img {
   width: 44px;
   height: 44px;
   padding: 4px;
-  border-radius: 10px;
+  border-radius: 50%;
   background: var(--white);
+  box-shadow: 0 14px 24px -18px rgba(17, 46, 129, 0.65);
 }
 
 .boardHeader strong,
@@ -559,14 +588,14 @@ img {
 }
 
 .boardHeader strong {
-  color: var(--white);
+  color: var(--blue);
   font-size: 16px;
   font-weight: 800;
 }
 
 .boardHeader small {
   margin-top: 4px;
-  color: rgba(255, 255, 255, 0.62);
+  color: rgba(17, 46, 129, 0.54);
   font-size: 10.5px;
   font-weight: 800;
   letter-spacing: 0.12em;
@@ -576,15 +605,16 @@ img {
 .routeMap {
   position: relative;
   z-index: 1;
-  height: 150px;
+  height: 162px;
   margin: 8px 22px 0;
 }
 
 .routeLine {
   position: absolute;
-  height: 2px;
+  height: 0;
+  border-top: 2px solid rgba(67, 130, 223, 0.72);
+  border-radius: 999px;
   transform-origin: left center;
-  background: rgba(127, 176, 240, 0.9);
 }
 
 .lineOne {
@@ -606,7 +636,7 @@ img {
   left: 108px;
   width: 210px;
   transform: rotate(8deg);
-  background: rgba(255, 255, 255, 0.44);
+  border-color: rgba(17, 46, 129, 0.28);
 }
 
 .routeNode {
@@ -615,10 +645,11 @@ img {
   align-items: center;
   min-height: 32px;
   padding: 0 11px;
-  border: 1px solid rgba(255, 255, 255, 0.22);
-  border-radius: 8px;
-  color: var(--white);
-  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(17, 46, 129, 0.12);
+  border-radius: 999px;
+  color: var(--blue);
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: 0 16px 30px -24px rgba(17, 46, 129, 0.68);
   font-size: 11px;
   font-weight: 800;
   backdrop-filter: blur(8px);
@@ -657,26 +688,28 @@ img {
 .issueStack {
   position: relative;
   z-index: 2;
-  display: grid;
-  gap: 1px;
-  margin-top: 2px;
-  border-top: 1px solid rgba(255, 255, 255, 0.16);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin: 4px 22px 0;
 }
 
 .issueStack span {
   display: flex;
   align-items: center;
   gap: 12px;
-  min-height: 42px;
-  padding: 0 22px;
-  color: rgba(255, 255, 255, 0.78);
-  background: rgba(255, 255, 255, 0.05);
+  min-height: 40px;
+  padding: 0 14px;
+  border: 1px solid rgba(17, 46, 129, 0.1);
+  border-radius: 999px;
+  color: #4a5174;
+  background: rgba(255, 255, 255, 0.82);
   font-size: 12.5px;
   font-weight: 700;
 }
 
 .issueStack strong {
-  color: #9fc3ff;
+  color: var(--sky);
   font-size: 12px;
   letter-spacing: 0.08em;
 }
