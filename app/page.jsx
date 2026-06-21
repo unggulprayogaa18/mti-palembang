@@ -10,6 +10,8 @@ import {
   Search,
   X
 } from "lucide-react";
+import aksesBanner from "../assets/Banner-AKSES.jpg";
+import newsletterOverlay from "../assets/Banner-AKSES 2.png";
 
 const IMG = {
   logo: "https://mti.or.id/wp-content/uploads/2023/01/cropped-cropped-MTI_LOGO_PNG-1-270x270.png",
@@ -21,7 +23,7 @@ const IMG = {
 };
 
 const navItems = [
-  { label: "16th EASTS Conference", href: "#easts", badge: true },
+  { label: "16th EASTS Conference", href: "/easts", badge: true },
   { label: "Beranda", href: "#", active: true },
   {
     label: "Kegiatan MTI",
@@ -348,6 +350,61 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="signatureSection" aria-label="Ciri khas newsroom MTI">
+        <div className="wideShell signatureGrid">
+          <div className="signatureCopy">
+            <span className="signatureKicker">MTI Signature Desk</span>
+            <h2>Ruang kurasi isu transportasi nasional.</h2>
+            <p>
+              Setiap kabar dibaca dari sudut kebijakan, wilayah, data, dan dampak publik agar
+              newsroom MTI terasa tajam, kredibel, dan punya identitas sendiri.
+            </p>
+            <div className="signatureTags" aria-label="Fokus editorial">
+              {signatureTags.map((tag) => (
+                <span key={tag}>{tag}</span>
+              ))}
+            </div>
+          </div>
+
+          <div className="signatureBoard" aria-hidden="true">
+            <div className="boardHeader">
+              <img src={IMG.logo} alt="" />
+              <span>
+                <strong>Transport Intelligence</strong>
+                <small>Policy - Region - Media</small>
+              </span>
+            </div>
+            <div className="deskPreview">
+              <div className="deskPreviewMain">
+                <span>Editorial Brief</span>
+                <strong>Kebijakan transportasi nasional</strong>
+                <p>Analisis singkat, konteks wilayah, dan dampak publik.</p>
+              </div>
+              <div className="deskPreviewRail">
+                <span>Kebijakan</span>
+                <span>Wilayah</span>
+                <span>Media</span>
+                <span>Publik</span>
+              </div>
+            </div>
+            <div className="issueStack">
+              <span>
+                <strong>01</strong>
+                Prioritas transportasi nasional
+              </span>
+              <span>
+                <strong>02</strong>
+                Rekomendasi mudik dan logistik
+              </span>
+              <span>
+                <strong>03</strong>
+                Suara wilayah dan komunitas
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="wideShell aksesShowcase" id="akses">
         <div className="aksesSurface">
           <div className="aksesCopy">
@@ -379,57 +436,6 @@ export default function Home() {
               alt=""
               aria-hidden="true"
             />
-          </div>
-        </div>
-      </section>
-
-      <section className="signatureSection" aria-label="Ciri khas newsroom MTI">
-        <div className="wideShell signatureGrid">
-          <div className="signatureCopy">
-            <span className="signatureKicker">MTI Signature Desk</span>
-            <h2>Ruang kurasi isu transportasi nasional.</h2>
-            <p>
-              Setiap kabar dibaca dari sudut kebijakan, wilayah, data, dan dampak publik agar
-              newsroom MTI terasa tajam, kredibel, dan punya identitas sendiri.
-            </p>
-            <div className="signatureTags" aria-label="Fokus editorial">
-              {signatureTags.map((tag) => (
-                <span key={tag}>{tag}</span>
-              ))}
-            </div>
-          </div>
-
-          <div className="signatureBoard" aria-hidden="true">
-            <div className="boardHeader">
-              <img src={IMG.logo} alt="" />
-              <span>
-                <strong>Transport Intelligence</strong>
-                <small>Policy - Region - Media</small>
-              </span>
-            </div>
-            <div className="routeMap">
-              <i className="routeLine lineOne" />
-              <i className="routeLine lineTwo" />
-              <i className="routeLine lineThree" />
-              <span className="routeNode nodeOne">Kebijakan</span>
-              <span className="routeNode nodeTwo">Wilayah</span>
-              <span className="routeNode nodeThree">Media</span>
-              <span className="routeNode nodeFour">Publik</span>
-            </div>
-            <div className="issueStack">
-              <span>
-                <strong>01</strong>
-                Prioritas transportasi nasional
-              </span>
-              <span>
-                <strong>02</strong>
-                Rekomendasi mudik dan logistik
-              </span>
-              <span>
-                <strong>03</strong>
-                Suara wilayah dan komunitas
-              </span>
-            </div>
           </div>
         </div>
       </section>
@@ -536,6 +542,10 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="aksesFullBanner" aria-label="Banner AKSES Nusantara">
+        <img src={aksesBanner.src} alt="AKSES Nusantara" />
+      </section>
+
       <section className="regionalBand" id="tentang">
         <div className="wideShell">
           <div className="regionalHeader">
@@ -603,6 +613,7 @@ export default function Home() {
 
       <section className="newsletter" id="newsletter">
         <div className="newsletterTexture" />
+        <img className="newsletterOverlay" src={newsletterOverlay.src} alt="" aria-hidden="true" />
         <div className="newsletterInner">
           <p>Sinergi Mewarnai Kemajuan Transportasi Indonesia</p>
           <h2>Berlangganan Newsletter MTI</h2>
