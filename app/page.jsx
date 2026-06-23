@@ -28,7 +28,11 @@ const navItems = [
   {
     label: "Kegiatan MTI",
     href: "#berita",
-    children: ["Dialog dan Sinergi Kebijakan", "MTI Dalam Berita", "Jalan-Jalan"]
+    children: [
+      { label: "Dialog dan Sinergi Kebijakan", href: "/dialog-kebijakan" },
+      { label: "MTI Dalam Berita", href: "/mti-dalam-berita" },
+      { label: "Jalan-Jalan", href: "#" }
+    ]
   },
   { label: "Rekomendasi Kebijakan", href: "#", children: ["Opini", "AKSES Utama"] },
   { label: "AKSES Nusantara", href: "#akses" },
@@ -288,9 +292,9 @@ export default function Home() {
                 {item.children && openDropdown === index ? (
                   <div className="dropdownPanel">
                     {item.children.map((child) => (
-                      <a href="#" key={child}>
+                      <a href={child.href || "#"} key={child.label || child}>
                         <span />
-                        {child}
+                        {child.label || child}
                       </a>
                     ))}
                   </div>
@@ -317,8 +321,8 @@ export default function Home() {
                 {item.children && openDropdown === index ? (
                   <div className="mobileSubmenu">
                     {item.children.map((child) => (
-                      <a href="#" key={child} onClick={() => setMobileOpen(false)}>
-                        {child}
+                      <a href={child.href || "#"} key={child.label || child} onClick={() => setMobileOpen(false)}>
+                        {child.label || child}
                       </a>
                     ))}
                   </div>
@@ -702,10 +706,18 @@ function FooterLinks({ title, items }) {
     <div className="footerLinks">
       <h3>{title}</h3>
       {items.map((item) => (
-        <a href="#" key={item}>
+        <a href={footerHref(item)} key={item}>
           {item}
         </a>
       ))}
     </div>
   );
+}
+
+function footerHref(item) {
+  if (item === "Dialog & Sinergi Kebijakan") return "/dialog-kebijakan";
+  if (item === "MTI Dalam Berita") return "/mti-dalam-berita";
+  if (item === "16th EASTS Conference") return "/easts";
+  if (item === "AKSES Nusantara") return "#akses";
+  return "#";
 }

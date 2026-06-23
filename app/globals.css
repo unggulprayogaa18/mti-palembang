@@ -2619,3 +2619,738 @@ img {
     padding-bottom: 18px;
   }
 }
+
+.dialogPolicyPage {
+  min-height: 100vh;
+  color: var(--ink);
+  background:
+    linear-gradient(180deg, #ffffff 0%, #f7f9fe 42%, #ffffff 100%);
+  overflow-x: hidden;
+}
+
+.dialogPolicyPage .masthead {
+  background: var(--white);
+}
+
+.dialogPolicyPage .navStrip {
+  top: 0;
+}
+
+.dialogSiteHeader {
+  position: relative;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.96);
+  border-bottom: 1px solid var(--line);
+  box-shadow: 0 18px 40px -34px rgba(17, 46, 129, 0.45);
+}
+
+.dialogUtility {
+  min-height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  color: #65708f;
+  font-size: 12px;
+  border-bottom: 1px solid var(--line-2);
+}
+
+.dialogUtility span,
+.dialogBrand,
+.dialogNav,
+.dialogHeaderInner,
+.dialogEyebrow,
+.dialogHeroStats,
+.dialogSectionHead span,
+.dialogLeadCopy small,
+.dialogLeadCopy strong,
+.dialogArticle small,
+.dialogSideTitle,
+.dialogSidePanel.contact a {
+  display: flex;
+  align-items: center;
+}
+
+.dialogUtility span {
+  gap: 7px;
+}
+
+.dialogHeaderInner {
+  min-height: 84px;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.dialogBrand {
+  gap: 12px;
+  min-width: 236px;
+}
+
+.dialogBrand img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+
+.dialogBrand strong,
+.dialogBrand small {
+  display: block;
+}
+
+.dialogBrand strong {
+  color: var(--blue);
+  font-size: 25px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.dialogBrand small {
+  margin-top: 4px;
+  color: #687294;
+  font-size: 9px;
+  font-weight: 900;
+  line-height: 1.35;
+  text-transform: uppercase;
+}
+
+.dialogNav {
+  justify-content: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.dialogNav a {
+  min-height: 38px;
+  display: inline-flex;
+  align-items: center;
+  border-radius: 8px;
+  padding-inline: 12px;
+  color: #4c5574;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.dialogNav a:hover,
+.dialogNav a.active {
+  color: var(--blue);
+  background: #eef3ff;
+}
+
+.dialogSearch {
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--blue);
+  background: var(--white);
+}
+
+.dialogHero {
+  position: relative;
+  min-height: 470px;
+  display: flex;
+  align-items: center;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.dialogHero > img,
+.dialogHeroShade {
+  position: absolute;
+  inset: 0;
+}
+
+.dialogHero > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -3;
+}
+
+.dialogHeroShade {
+  z-index: -2;
+  background:
+    linear-gradient(90deg, rgba(6, 14, 36, 0.92) 0%, rgba(17, 46, 129, 0.74) 48%, rgba(70, 71, 174, 0.36) 100%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.1), rgba(6, 14, 36, 0.46));
+}
+
+.dialogHeroContent {
+  padding-top: 86px;
+  padding-bottom: 86px;
+  color: var(--white);
+}
+
+.dialogEyebrow {
+  width: fit-content;
+  gap: 8px;
+  min-height: 34px;
+  padding-inline: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 8px;
+  color: #dbe7ff;
+  background: rgba(255, 255, 255, 0.11);
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.dialogHero h1 {
+  max-width: 820px;
+  margin: 24px 0 18px;
+  font-size: 64px;
+  line-height: 0.98;
+  font-weight: 900;
+}
+
+.dialogHero p {
+  max-width: 690px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.dialogHeroStats {
+  margin-top: 34px;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.dialogHeroStats span {
+  min-width: 146px;
+  min-height: 74px;
+  display: grid;
+  align-content: center;
+  gap: 4px;
+  padding: 13px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 8px;
+  background: rgba(7, 15, 38, 0.42);
+}
+
+.dialogHeroStats strong {
+  font-size: 24px;
+  line-height: 1;
+}
+
+.dialogHeroStats span {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.dialogIntroStrip {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  margin-top: -34px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--line);
+  box-shadow: var(--shadow);
+}
+
+.dialogIntroStrip span {
+  min-height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  color: var(--blue);
+  background: var(--white);
+  font-size: 13px;
+  font-weight: 900;
+  text-align: center;
+}
+
+.dialogContentGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 360px;
+  gap: 34px;
+  padding-top: 68px;
+  padding-bottom: 68px;
+}
+
+.dialogSectionHead {
+  margin-bottom: 24px;
+}
+
+.dialogSectionHead span {
+  gap: 8px;
+  color: var(--violet);
+  font-size: 13px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.dialogSectionHead h2 {
+  max-width: 640px;
+  margin: 10px 0 0;
+  color: var(--deep);
+  font-size: 36px;
+  line-height: 1.08;
+}
+
+.dialogLeadArticle,
+.dialogArticle,
+.dialogSidePanel {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--white);
+  box-shadow: 0 18px 44px -34px rgba(17, 46, 129, 0.5);
+  overflow: hidden;
+}
+
+.dialogLeadArticle > a {
+  display: grid;
+  grid-template-columns: 48% 1fr;
+  min-height: 360px;
+}
+
+.dialogLeadImage {
+  position: relative;
+  min-height: 360px;
+  overflow: hidden;
+}
+
+.dialogLeadImage img,
+.dialogArticle img,
+.dialogSidePanel.highlight > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.dialogLeadImage span,
+.dialogArticle span {
+  width: fit-content;
+  border-radius: 8px;
+  color: var(--blue);
+  background: #eaf3ff;
+  font-size: 11px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.dialogLeadImage span {
+  position: absolute;
+  left: 18px;
+  bottom: 18px;
+  padding: 9px 11px;
+}
+
+.dialogLeadCopy {
+  display: grid;
+  align-content: center;
+  padding: 34px;
+}
+
+.dialogLeadCopy small {
+  gap: 7px;
+  color: #707995;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.dialogLeadCopy h3 {
+  margin: 14px 0 14px;
+  color: var(--deep);
+  font-size: 32px;
+  line-height: 1.18;
+}
+
+.dialogLeadCopy p {
+  margin: 0 0 26px;
+  color: var(--text);
+  font-size: 15px;
+  line-height: 1.78;
+}
+
+.dialogLeadCopy strong {
+  gap: 8px;
+  color: var(--violet);
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.dialogArticleList {
+  display: grid;
+  gap: 16px;
+  margin-top: 18px;
+}
+
+.dialogArticle a {
+  display: grid;
+  grid-template-columns: 212px minmax(0, 1fr);
+  min-height: 190px;
+}
+
+.dialogArticle img {
+  min-height: 190px;
+}
+
+.dialogArticle div {
+  min-width: 0;
+  padding: 22px 24px;
+}
+
+.dialogArticle span {
+  display: inline-flex;
+  padding: 7px 9px;
+}
+
+.dialogArticle h3 {
+  margin: 12px 0 10px;
+  color: var(--deep);
+  font-size: 21px;
+  line-height: 1.25;
+}
+
+.dialogArticle p {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin: 0 0 16px;
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.dialogArticle small {
+  gap: 8px;
+  color: var(--violet);
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.dialogSidebar {
+  display: grid;
+  align-content: start;
+  gap: 18px;
+}
+
+.dialogSidePanel {
+  padding: 22px;
+}
+
+.dialogSidePanel.highlight {
+  padding: 0;
+}
+
+.dialogSidePanel.highlight > img {
+  height: 230px;
+}
+
+.dialogSidePanel.highlight div {
+  padding: 20px 22px 24px;
+}
+
+.dialogSidePanel span,
+.dialogPolicyBand span {
+  color: var(--violet);
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.dialogSidePanel h2 {
+  margin: 8px 0 10px;
+  color: var(--deep);
+  font-size: 22px;
+  line-height: 1.18;
+}
+
+.dialogSidePanel p {
+  margin: 0;
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.dialogSideTitle {
+  gap: 9px;
+  margin-bottom: 14px;
+}
+
+.dialogSideTitle h2 {
+  margin: 0;
+}
+
+.aksesDownloadList {
+  display: grid;
+  gap: 1px;
+  border: 1px solid var(--line-2);
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--line-2);
+}
+
+.aksesDownloadList a {
+  display: grid;
+  gap: 6px;
+  padding: 14px;
+  background: var(--white);
+}
+
+.aksesDownloadList strong,
+.aksesDownloadList small,
+.aksesDownloadList em {
+  display: block;
+}
+
+.aksesDownloadList strong {
+  color: var(--deep);
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+.aksesDownloadList small,
+.aksesDownloadList em {
+  color: #7d86a2;
+  font-size: 12px;
+  font-style: normal;
+}
+
+.dialogSidePanel.contact {
+  color: var(--white);
+  border-color: transparent;
+  background:
+    linear-gradient(135deg, rgba(17, 46, 129, 0.98), rgba(70, 71, 174, 0.96)),
+    #112e81;
+}
+
+.dialogSidePanel.contact span,
+.dialogSidePanel.contact h2,
+.dialogSidePanel.contact a {
+  color: var(--white);
+}
+
+.dialogSidePanel.contact p {
+  color: rgba(255, 255, 255, 0.76);
+}
+
+.dialogSidePanel.contact a {
+  width: fit-content;
+  gap: 8px;
+  margin-top: 18px;
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.dialogPolicyBand {
+  background: #0b1330;
+  color: var(--white);
+}
+
+.dialogPolicyBandInner {
+  display: grid;
+  grid-template-columns: 1fr 0.9fr;
+  gap: 44px;
+  align-items: center;
+  padding-top: 56px;
+  padding-bottom: 56px;
+}
+
+.dialogPolicyBand h2 {
+  max-width: 660px;
+  margin: 10px 0 0;
+  font-size: 34px;
+  line-height: 1.12;
+}
+
+.dialogPolicyBand p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.mediaNewsPage .dialogHeroShade {
+  background:
+    linear-gradient(90deg, rgba(4, 13, 34, 0.9) 0%, rgba(17, 46, 129, 0.76) 48%, rgba(67, 130, 223, 0.34) 100%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.08), rgba(6, 14, 36, 0.42));
+}
+
+.mediaNewsPage .dialogEyebrow,
+.mediaNewsPage .dialogSectionHead span,
+.mediaNewsPage .dialogLeadCopy strong,
+.mediaNewsPage .dialogArticle small {
+  color: var(--sky);
+}
+
+.mediaNewsPage .dialogLeadImage span,
+.mediaNewsPage .dialogArticle span {
+  color: var(--sky);
+  background: #e8f2ff;
+}
+
+.mediaNewsPage .dialogSidePanel.contact {
+  background:
+    linear-gradient(135deg, rgba(14, 20, 48, 0.98), rgba(17, 46, 129, 0.95)),
+    #0e1430;
+}
+
+.mediaNewsBand {
+  background:
+    linear-gradient(135deg, #0b1330 0%, #112e81 100%);
+}
+
+.mediaNewsBand .dialogPolicyBandInner {
+  grid-template-columns: 1fr 0.9fr auto;
+}
+
+.mediaNewsBand svg {
+  color: rgba(255, 255, 255, 0.48);
+}
+
+@media (max-width: 1080px) {
+  .dialogPolicyPage .dialogDesktopNav {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 4px;
+  }
+
+  .dialogPolicyPage .dialogDesktopNav .navItem {
+    flex: 0 0 auto;
+  }
+
+  .dialogHeaderInner {
+    align-items: flex-start;
+    flex-direction: column;
+    padding-top: 18px;
+    padding-bottom: 18px;
+  }
+
+  .dialogSearch {
+    position: absolute;
+    top: 56px;
+    right: 28px;
+  }
+
+  .dialogContentGrid,
+  .dialogPolicyBandInner {
+    grid-template-columns: 1fr;
+  }
+
+  .mediaNewsBand .dialogPolicyBandInner {
+    grid-template-columns: 1fr;
+  }
+
+  .dialogSidebar {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 820px) {
+  .dialogUtility {
+    display: none;
+  }
+
+  .dialogHeaderInner {
+    min-height: auto;
+  }
+
+  .dialogNav {
+    width: 100%;
+    justify-content: flex-start;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 4px;
+  }
+
+  .dialogNav a {
+    white-space: nowrap;
+  }
+
+  .dialogHero {
+    min-height: 430px;
+  }
+
+  .dialogHeroContent {
+    padding-top: 68px;
+    padding-bottom: 68px;
+  }
+
+  .dialogHero h1 {
+    font-size: 44px;
+  }
+
+  .dialogIntroStrip {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .dialogLeadArticle > a,
+  .dialogArticle a,
+  .dialogSidebar {
+    grid-template-columns: 1fr;
+  }
+
+  .dialogArticle img {
+    aspect-ratio: 16 / 9;
+    min-height: 0;
+  }
+}
+
+@media (max-width: 560px) {
+  .dialogSearch {
+    top: 20px;
+    right: 18px;
+  }
+
+  .dialogBrand {
+    min-width: 0;
+    padding-right: 54px;
+  }
+
+  .dialogHero h1 {
+    font-size: 35px;
+  }
+
+  .dialogHero p {
+    font-size: 15px;
+  }
+
+  .dialogHeroStats span {
+    width: 100%;
+  }
+
+  .dialogIntroStrip {
+    margin-top: 0;
+    border-right: 0;
+    border-left: 0;
+    border-radius: 0;
+  }
+
+  .dialogContentGrid {
+    padding-top: 46px;
+    padding-bottom: 46px;
+  }
+
+  .dialogSectionHead h2,
+  .dialogPolicyBand h2 {
+    font-size: 28px;
+  }
+
+  .dialogLeadCopy {
+    padding: 24px 20px;
+  }
+
+  .dialogLeadCopy h3 {
+    font-size: 25px;
+  }
+
+  .dialogArticle div,
+  .dialogSidePanel {
+    padding: 20px;
+  }
+}
