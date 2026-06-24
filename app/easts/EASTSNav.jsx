@@ -1,6 +1,7 @@
 "use client";
-import { ArrowRight, ChevronDown } from "lucide-react";
+import { ArrowRight, ChevronDown, Menu, X } from "lucide-react";
 import { usePathname } from "next/navigation";
+import { useState } from "react";
 
 const primaryNav = [
   { label: "Theme", href: "/easts/theme" },
@@ -50,6 +51,15 @@ const moreCategories = [
   },
 ];
 
+const allMobileLinks = [
+  ...primaryNav.flatMap((item) =>
+    item.children
+      ? [item, ...item.children.map((c) => ({ ...c, isChild: true }))]
+      : [item]
+  ),
+  ...moreCategories.flatMap((cat) => cat.items),
+];
+
 function isActive(href, pathname) {
   if (href === "/easts") return pathname === "/easts";
   return pathname.startsWith(href);
@@ -63,87 +73,124 @@ function isMoreActive(pathname) {
 
 export default function EASTSNav() {
   const pathname = usePathname();
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <header className="eastsHeader">
-      <a className="eastsBrand" href="/easts">
-        <img
-          src="https://cdna.uns.ac.id/wp-content/uploads/sites/14/2025/03/eastslogo-3.png"
-          alt="EASTS"
-          className="eastsBrandLogo"
-        />
-        <div>
-          <span>16th EASTS 2025</span>
-          <small>Surakarta · Sep 1–4</small>
-        </div>
-      </a>
+    <>
+      <header className="eastsHeader">
+        <a className="eastsBrand" href="/easts">
+          <img
+            src="https://cdna.uns.ac.id/wp-content/uploads/sites/14/2025/03/eastslogo-3.png"
+            alt="EASTS"
+            className="eastsBrandLogo"
+          />
+          <div>
+            <span>16th EASTS 2025</span>
+            <small>Surakarta · Sep 1–4</small>
+          </div>
+        </a>
 
-      <nav className="eastsMainNav" aria-label="EASTS Conference navigation">
-        {primaryNav.map((item) =>
-          item.children ? (
-            <div className="eastsNavGroup" key={item.label}>
+        <nav className="eastsMainNav" aria-label="EASTS Conference navigation">
+          {primaryNav.map((item) =>
+            item.children ? (
+              <div className="eastsNavGroup" key={item.label}>
+                <a
+                  href={item.href}
+                  className={isActive(item.href, pathname) ? "active" : ""}
+                >
+                  {item.label}
+                  <ChevronDown size={11} aria-hidden="true" />
+                </a>
+                <div className="eastsNavDropdown">
+                  {item.children.map((child) => (
+                    <a
+                      href={child.href}
+                      key={child.label}
+                      className={pathname === child.href ? "active" : ""}
+                    >
+                      {child.label}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            ) : (
               <a
                 href={item.href}
+                key={item.label}
                 className={isActive(item.href, pathname) ? "active" : ""}
               >
                 {item.label}
-                <ChevronDown size={11} aria-hidden="true" />
               </a>
-              <div className="eastsNavDropdown">
-                {item.children.map((child) => (
-                  <a
-                    href={child.href}
-                    key={child.label}
-                    className={pathname === child.href ? "active" : ""}
-                  >
-                    {child.label}
-                  </a>
-                ))}
-              </div>
-            </div>
-          ) : (
-            <a
-              href={item.href}
-              key={item.label}
-              className={isActive(item.href, pathname) ? "active" : ""}
-            >
-              {item.label}
-            </a>
-          )
-        )}
+            )
+          )}
 
-        {/* More — mega-menu */}
-        <div className="eastsNavGroup eastsMoreGroup">
-          <button
-            className={`eastsMoreBtn${isMoreActive(pathname) ? " active" : ""}`}
-            type="button"
+          {/* More — mega-menu */}
+          <div className="eastsNavGroup eastsMoreGroup">
+            <button
+              className={`eastsMoreBtn${isMoreActive(pathname) ? " active" : ""}`}
+              type="button"
+            >
+              More
+              <ChevronDown size={11} aria-hidden="true" />
+            </button>
+            <div className="eastsMegaMenu">
+              {moreCategories.map((cat) => (
+                <div key={cat.label} className="eastsMegaMenuSection">
+                  <h4>{cat.label}</h4>
+                  {cat.items.map((item) => (
+                    <a
+                      href={item.href}
+                      key={item.label}
+                      className={pathname === item.href ? "active" : ""}
+                    >
+                      {item.label}
+                    </a>
+                  ))}
+                </div>
+              ))}
+            </div>
+          </div>
+        </nav>
+
+        <a className="eastsHeaderCta" href="/easts/registration">
+          Register
+          <ArrowRight size={14} aria-hidden="true" />
+        </a>
+
+        <button
+          className="eastsMobileToggle"
+          type="button"
+          aria-label={mobileOpen ? "Tutup menu" : "Buka menu"}
+          onClick={() => setMobileOpen((v) => !v)}
+        >
+          {mobileOpen ? <X size={22} /> : <Menu size={22} />}
+        </button>
+      </header>
+
+      {mobileOpen && (
+        <div className="eastsMobileMenu">
+          <a
+            href="/easts/registration"
+            className="eastsMobileRegisterBtn"
+            onClick={() => setMobileOpen(false)}
           >
-            More
-            <ChevronDown size={11} aria-hidden="true" />
-          </button>
-          <div className="eastsMegaMenu">
-            {moreCategories.map((cat) => (
-              <div key={cat.label} className="eastsMegaMenuSection">
-                <h4>{cat.label}</h4>
-                {cat.items.map((item) => (
-                  <a
-                    href={item.href}
-                    key={item.label}
-                    className={pathname === item.href ? "active" : ""}
-                  >
-                    {item.label}
-                  </a>
-                ))}
-              </div>
+            Register Now
+            <ArrowRight size={15} aria-hidden="true" />
+          </a>
+          <div className="eastsMobileLinks">
+            {allMobileLinks.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                className={`eastsMobileLink${item.isChild ? " eastsMobileLinkChild" : ""}${isActive(item.href, pathname) ? " active" : ""}`}
+                onClick={() => setMobileOpen(false)}
+              >
+                {item.label}
+              </a>
             ))}
           </div>
         </div>
-      </nav>
-
-      <a className="eastsHeaderCta" href="/easts/registration">
-        Register
-        <ArrowRight size={14} aria-hidden="true" />
-      </a>
-    </header>
+      )}
+    </>
   );
 }
