@@ -1,30 +1,30 @@
 import {
   ArrowRight,
+  BookOpen,
   CalendarDays,
   Download,
-  Megaphone,
-  Newspaper,
+  PenLine,
   Search,
   Sparkles
 } from "lucide-react";
 import DialogNav from "../components/DialogNav";
 
 export const metadata = {
-  title: "MTI Dalam Berita | MTI",
+  title: "Opini | MTI",
   description:
-    "Halaman MTI Dalam Berita berisi liputan terbaru seputar kegiatan MTI Pusat dan isu transportasi nasional."
+    "Halaman Opini MTI berisi pandangan, analisis, dan gagasan dari pakar serta anggota Masyarakat Transportasi Indonesia terhadap isu transportasi nasional."
 };
 
 const IMG = {
   logo: "https://mti.or.id/wp-content/uploads/2023/01/cropped-cropped-MTI_LOGO_PNG-1-270x270.png",
-  hero: "https://mti.or.id/wp-content/uploads/2023/05/13.jpg",
-  jasa: "https://mti.or.id/wp-content/uploads/2026/03/WhatsApp-Image-2026-03-11-at-20.25.20-scaled.jpeg",
-  bkt: "https://mti.or.id/wp-content/uploads/2026/03/jelang-mudik-lebaran-kendaraan-barang-berat-dibatasi-mulai-13-maret-1773223046236_169.jpeg",
-  bukaPuasa: "https://mti.or.id/wp-content/uploads/2026/03/WhatsApp-Image-2026-03-19-at-19.50.51.jpeg",
-  mudikBalik: "https://mti.or.id/wp-content/uploads/2026/03/WhatsApp-Image-2026-03-09-at-17.23.00.jpeg",
-  membumi: "https://mti.or.id/wp-content/uploads/2026/02/hq720.jpg",
+  hero: "https://mti.or.id/wp-content/uploads/2026/02/hq720.jpg",
   motor: "https://mti.or.id/wp-content/uploads/2026/02/Ojol-Ilustration.png",
   jalanTol: "https://mti.or.id/wp-content/uploads/2026/02/Mudik-JM.jpeg",
+  tod: "https://mti.or.id/wp-content/uploads/2025/11/1761963524570.jpg",
+  logistics: "https://mti.or.id/wp-content/uploads/2025/10/WhatsApp-Image-2025-10-30-at-14.20.48-1.jpeg",
+  odol: "https://mti.or.id/wp-content/uploads/2025/10/WhatsApp-Image-2025-10-31-at-20.42.11.jpeg",
+  rural: "https://mti.or.id/wp-content/uploads/2026/03/WhatsApp-Image-2026-02-23-at-14.57.51.jpeg",
+  rail: "https://mti.or.id/wp-content/uploads/2025/09/WhatsApp-Image-2025-09-17-at-15.59.48.jpeg",
   akses36: "https://mti.or.id/wp-content/uploads/2026/04/36.jpg"
 };
 
@@ -38,58 +38,13 @@ const ticker = [
 
 const articles = [
   {
-    title: "Hadapi Mudik Lebaran 2026, Jasa Raharja Kumpulkan Pakar Transportasi MTI",
-    date: "18 Maret 2026",
-    tag: "Mudik 2026",
-    image: IMG.jasa,
-    href: "https://mti.or.id/hadapi-mudik-lebaran-2026-jasa-raharja-kumpulkan-pakar-transportasi-mti/",
-    excerpt:
-      "PT Jasa Raharja menggelar forum diskusi Ngobrol Santai Bersama Pakar Transportasi untuk membahas kesiapan penyelenggaraan mudik Lebaran 2026."
-  },
-  {
-    title: "MTI dan BKT Bahas Pro-Kontra Pembatasan Angkutan Barang pada Mudik 2026",
-    date: "15 Maret 2026",
-    tag: "Dialog",
-    image: IMG.bkt,
-    href: "https://mti.or.id/mti-dan-bkt-bahas-pro-kontra-pembatasan-angkutan-barang-pada-mudik-2026/",
-    excerpt:
-      "MTI melakukan pertemuan dengan pimpinan Badan Kebijakan Transportasi Kementerian Perhubungan untuk membahas kebijakan pembatasan angkutan barang."
-  },
-  {
-    title: "MTI Gelar Buka Puasa Bersama, Sampai Rekomendasi Mudik 2026",
-    date: "15 Maret 2026",
-    tag: "Kegiatan",
-    image: IMG.bukaPuasa,
-    href: "https://mti.or.id/mti-gelar-buka-puasa-bersama-sampai-rekomendasi-mudik-2026/",
-    excerpt:
-      "MTI menggelar buka puasa bersama yang dirangkaikan dengan konferensi pers dan penyampaian rekomendasi penyelenggaraan mudik 2026."
-  },
-  {
-    title: "Mudik-Balik 2026: Mengantisipasi Risiko Kemacetan Lalu Lintas dan Kepadatan di Simpul Transportasi",
-    date: "12 Maret 2026",
-    tag: "Analisis",
-    image: IMG.mudikBalik,
-    href: "https://mti.or.id/mudik-balik-2026-mengantisipasi-risiko-kemacetan-lalu-lintas-dan-kepadatan-di-simpul-transportasi/",
-    excerpt:
-      "Mengacu hasil survei BKT Kementerian Perhubungan, MTI menyoroti risiko kemacetan dan kepadatan simpul transportasi selama arus mudik dan balik."
-  },
-  {
-    title: "MTI Membumi, MTI Berdampak, MTI untuk Indonesia.",
-    date: "19 Februari 2026",
-    tag: "Milestone",
-    image: IMG.membumi,
-    href: "https://mti.or.id/mti-membumi-mti-berdampak-mti-untuk-indonesia/",
-    excerpt:
-      "Tepat pada 21 Desember 2025, Masyarakat Transportasi Indonesia genap berusia 30 tahun dan terus memperkuat dampaknya bagi transportasi Indonesia."
-  },
-  {
     title: "Motor, Moda Antara Yang Tak Boleh Menjadi Takdir Kota",
     date: "19 Februari 2026",
-    tag: "Opini",
+    tag: "Transportasi Kota",
     image: IMG.motor,
     href: "https://mti.or.id/motor-moda-antara-yang-tak-boleh-menjadi-takdir-kota/",
     excerpt:
-      "Indonesia hidup dengan lebih dari 120 juta sepeda motor. Tantangannya adalah memastikan motor tidak menjadi takdir permanen mobilitas kota."
+      "Indonesia hidup dengan lebih dari 120 juta sepeda motor. Tantangannya adalah memastikan motor tidak menjadi takdir permanen mobilitas kota, melainkan jembatan menuju sistem transportasi publik yang kuat."
   },
   {
     title: "Mudik Lebaran 2026: Jangan Hanya Bertumpu di Jalan Tol",
@@ -98,7 +53,52 @@ const articles = [
     image: IMG.jalanTol,
     href: "https://mti.or.id/mudik-lebaran-2026-jangan-hanya-bertumpu-di-jalan-tol/",
     excerpt:
-      "Menghadapi mudik Lebaran 2026, pemerintah dinilai tidak boleh hanya terpaku pada jalan tol, tetapi juga perlu memperkuat moda dan jaringan alternatif."
+      "Menghadapi mudik Lebaran 2026, pemerintah dinilai tidak boleh hanya terpaku pada jalan tol, tetapi juga perlu memperkuat moda dan jaringan alternatif agar mobilitas jutaan pemudik lebih terdistribusi."
+  },
+  {
+    title: "Menata Kota dengan TOD: Wujudkan Transportasi Terintegrasi dan Ramah Publik",
+    date: "2 November 2025",
+    tag: "Perkotaan",
+    image: IMG.tod,
+    href: "https://mti.or.id/menata-kota-dengan-tod-wujudkan-transportasi-terintegrasi-dan-ramah-publik/",
+    excerpt:
+      "Perkembangan perkotaan yang pesat memunculkan tantangan kemacetan dan inefisiensi layanan publik. Transit Oriented Development menjadi jawaban untuk membangun kota yang manusiawi dan terintegrasi."
+  },
+  {
+    title: "MTI Dorong Reformasi Sistemik Penanganan ODOL dan Transformasi Logistik Nasional",
+    date: "31 Oktober 2025",
+    tag: "Logistik",
+    image: IMG.logistics,
+    href: "https://mti.or.id/mti-dorong-reformasi-sistemik-penanganan-odol-dan-transformasi-logistik-nasional/",
+    excerpt:
+      "Ketua Umum MTI Tory Damantoro mendorong pembenahan lintas sektor dalam penanganan ODOL, mulai dari regulasi penimbangan, skema insentif pengusaha, hingga integrasi moda dalam ekosistem logistik nasional."
+  },
+  {
+    title: "Tantangan Transportasi Darat: Keselamatan, Truk ODOL, dan Angkutan Roda Dua Jadi Sorotan",
+    date: "31 Oktober 2025",
+    tag: "Keselamatan",
+    image: IMG.odol,
+    href: "https://mti.or.id/tantangan-transportasi-darat-di-meja-direktorat-jenderal-perhubungan-darat-keselamatan-truk-odol-dan-angkutan-roda-dua-jadi-sorotan/",
+    excerpt:
+      "Isu keselamatan angkutan jalan, truk ODOL, dan angkutan roda dua menjadi sorotan dalam pembahasan strategis bersama pemangku kebijakan yang menuntut pendekatan komprehensif dan lintas sektor."
+  },
+  {
+    title: "Penguatan Transportasi Perdesaan, Keperintisan, dan Daerah Tertinggal",
+    date: "30 Januari 2026",
+    tag: "Konektivitas",
+    image: IMG.rural,
+    href: "https://mti.or.id/penguatan-transportasi-perdesaan-keperintisan-dan-daerah-tertinggal/",
+    excerpt:
+      "Ketimpangan konektivitas antara wilayah perkotaan dan perdesaan masih menjadi tantangan besar. MTI mendorong pendekatan kebijakan yang berpihak pada daerah tertinggal dan terpencil."
+  },
+  {
+    title: "Diskusi Forum Transportasi Jalan dan Perkeretaapian MTI dengan Dirjen Perkeretaapian dan Jajaran",
+    date: "19 September 2025",
+    tag: "Perkeretaapian",
+    image: IMG.rail,
+    href: "https://mti.or.id/diskusi-forum-transportasi-jalan-dan-perkeretaapian-mti-dengan-dirjen-perkeretaapian-dan-jajaran/",
+    excerpt:
+      "Sektor perkeretaapian Indonesia berkembang sangat dinamis dalam 15 tahun terakhir, membuka ruang dialog mengenai keselamatan, integrasi layanan, dan arah kebijakan jangka panjang."
   }
 ];
 
@@ -111,13 +111,13 @@ const aksesItems = [
   ["Akses Nusantara Edisi 31", "Oktober 2025", "14 November 2025"]
 ];
 
-const focusAreas = ["Kegiatan MTI Pusat", "Mudik Lebaran", "Transportasi Kota", "Opini Publik"];
+const focusAreas = ["Transportasi Kota", "Keselamatan Jalan", "Logistik Nasional", "Kebijakan Publik"];
 
-export default function MtiDalamBeritaPage() {
+export default function OpiniPage() {
   const [leadArticle, ...otherArticles] = articles;
 
   return (
-    <main className="dialogPolicyPage mediaNewsPage">
+    <main className="dialogPolicyPage opiniPage">
       <div className="topGradient" />
 
       <div className="utilityBar">
@@ -164,7 +164,7 @@ export default function MtiDalamBeritaPage() {
         </div>
       </section>
 
-      <DialogNav activeItem="Kegiatan MTI" />
+      <DialogNav activeItem="Rekomendasi Kebijakan" />
 
       <section className="tickerBand" aria-label="Berita terkini">
         <div className="tickerLabel">
@@ -190,31 +190,31 @@ export default function MtiDalamBeritaPage() {
         <div className="wideShell dialogHeroContent">
           <span className="dialogEyebrow">
             <Sparkles size={16} aria-hidden="true" />
-            MTI Dalam Berita
+            Opini MTI
           </span>
-          <h1>MTI Dalam Berita</h1>
+          <h1>Opini Masyarakat Transportasi Indonesia</h1>
           <p>
-            Berita terbaru seputar kegiatan MTI Pusat, pandangan pakar transportasi, dan isu
-            mobilitas nasional yang menjadi perhatian publik.
+            Pandangan, analisis, dan gagasan dari pakar serta anggota MTI terhadap isu transportasi
+            nasional yang terus berkembang.
           </p>
           <div className="dialogHeroStats" aria-label="Ringkasan halaman">
             <span>
               <strong>7</strong>
-              Berita utama
+              Artikel opini
             </span>
             <span>
-              <strong>2026</strong>
-              Liputan terbaru
+              <strong>2025-2026</strong>
+              Arsip editorial
             </span>
             <span>
-              <strong>MTI</strong>
-              Pusat
+              <strong>4</strong>
+              Bidang kajian
             </span>
           </div>
         </div>
       </section>
 
-      <section className="wideShell dialogIntroStrip" aria-label="Fokus liputan MTI">
+      <section className="wideShell dialogIntroStrip" aria-label="Bidang kajian opini">
         {focusAreas.map((item) => (
           <span key={item}>{item}</span>
         ))}
@@ -224,10 +224,10 @@ export default function MtiDalamBeritaPage() {
         <div className="dialogFeed">
           <div className="dialogSectionHead">
             <span>
-              <Newspaper size={18} aria-hidden="true" />
-              Berita Terbaru
+              <PenLine size={18} aria-hidden="true" />
+              Artikel Opini
             </span>
-            <h2>Berita terbaru seputar kegiatan MTI Pusat.</h2>
+            <h2>Gagasan dan pandangan dari para pakar transportasi.</h2>
           </div>
 
           <article className="dialogLeadArticle">
@@ -271,7 +271,7 @@ export default function MtiDalamBeritaPage() {
           </div>
         </div>
 
-        <aside className="dialogSidebar" aria-label="Publikasi dan arsip MTI">
+        <aside className="dialogSidebar" aria-label="Publikasi dan informasi MTI">
           <section className="dialogSidePanel highlight">
             <img src={IMG.akses36} alt="Akses Nusantara Edisi 36" />
             <div>
@@ -300,14 +300,14 @@ export default function MtiDalamBeritaPage() {
           </section>
 
           <section className="dialogSidePanel contact">
-            <span>Ruang Liputan</span>
-            <h2>Kabar MTI dikurasi dari kegiatan, diskusi, dan isu publik.</h2>
+            <span>Ruang Opini MTI</span>
+            <h2>Suara pakar untuk kebijakan transportasi yang lebih baik.</h2>
             <p>
-              Halaman ini membantu pembaca mengikuti aktivitas MTI Pusat tanpa kehilangan konteks
-              kebijakan transportasi yang sedang berkembang.
+              Opini MTI hadir untuk membuka ruang gagasan, kajian kritis, dan rekomendasi dari
+              seluruh pemangku kepentingan transportasi nasional.
             </p>
             <a href="mailto:secretariat@mti.or.id">
-              Hubungi sekretariat
+              secretariat@mti.or.id
               <ArrowRight size={15} aria-hidden="true" />
             </a>
           </section>
@@ -317,14 +317,15 @@ export default function MtiDalamBeritaPage() {
       <section className="dialogPolicyBand mediaNewsBand">
         <div className="wideShell dialogPolicyBandInner">
           <div>
-            <span>Media Watch</span>
-            <h2>Aktivitas MTI Pusat dibaca bersama arah kebijakan transportasi nasional.</h2>
+            <span>Editorial</span>
+            <h2>Opini yang dibaca sebagai pandangan, bukan sekadar komentar.</h2>
           </div>
           <p>
-            Dari forum mudik, rekomendasi keselamatan, sampai opini mobilitas kota, halaman ini
-            menjadi pintu masuk cepat untuk mengikuti suara MTI di ruang publik.
+            Dari isu motor, jalan tol, TOD, ODOL, logistik, sampai perkeretaapian, ruang opini MTI
+            menjadi wadah pemikiran kritis yang mendorong kebijakan transportasi berbasis data dan
+            pengalaman lapangan.
           </p>
-          <Megaphone size={48} aria-hidden="true" />
+          <BookOpen size={48} aria-hidden="true" />
         </div>
       </section>
 
@@ -386,8 +387,8 @@ function footerHref(item) {
   if (item === "Jalan-Jalan") return "/kegiatan-mti/jalan-jalan";
   if (item === "16th EASTS Conference") return "/easts";
   if (item === "AKSES Nusantara") return "/aksesnusantara";
-  if (item === "AKSES Utama") return "/aksesutama";
   if (item === "Opini") return "/opini";
+  if (item === "AKSES Utama") return "/aksesutama";
   if (item === "Sejarah MTI") return "/sejarah-mti";
   if (item === "Struktur Organisasi") return "/struktur-organisasi";
   return "#";

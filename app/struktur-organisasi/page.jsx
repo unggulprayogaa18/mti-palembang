@@ -1,0 +1,396 @@
+import {
+  ArrowRight,
+  Building2,
+  Download,
+  Search,
+  Sparkles,
+  Users
+} from "lucide-react";
+import DialogNav from "../components/DialogNav";
+
+export const metadata = {
+  title: "Struktur Organisasi | Masyarakat Transportasi Indonesia",
+  description:
+    "Struktur kepengurusan Masyarakat Transportasi Indonesia periode 2025–2028 hasil Kongres Nasional X di Jakarta."
+};
+
+const IMG = {
+  logo: "https://mti.or.id/wp-content/uploads/2023/01/cropped-cropped-MTI_LOGO_PNG-1-270x270.png",
+  hero: "https://mti.or.id/wp-content/uploads/2023/07/Dialog-dan-Sinergi-2.jpg",
+  akses36: "https://mti.or.id/wp-content/uploads/2026/04/36.jpg",
+  orgChart: "https://mti.or.id/wp-content/uploads/2025/11/1761963524570.jpg"
+};
+
+const ticker = [
+  { tag: "KEBIJAKAN", text: "Menhub paparkan lima prioritas transportasi nasional di Kongres X MTI" },
+  { tag: "MUDIK 2026", text: "MTI usul pembatasan angkutan barang dikurangi 50% jadi 7-8 hari" },
+  { tag: "AGENDA", text: "16th EASTS Conference - sinergi MTI di kancah internasional" },
+  { tag: "JURNAL", text: "AKSES Nusantara Edisi 36 Maret 2026 telah terbit" }
+];
+
+const leadership = [
+  { role: "Ketua Umum", name: "Dr. Ir. Tulus Abadi, M.M.", badge: "Ketua" },
+  { role: "Wakil Ketua Umum I", name: "Prof. Dr. Ir. Agus Taufik Mulyono, S.T., M.T.", badge: "Wakil" },
+  { role: "Wakil Ketua Umum II", name: "Dr. Ir. Djoko Setijowarno, M.T.", badge: "Wakil" },
+  { role: "Sekretaris Jenderal", name: "Dr. Ir. Aditya Dwi Laksana, M.T.", badge: "Sekjen" },
+  { role: "Wakil Sekretaris Jenderal", name: "Ir. Haris Muhammadun, M.T.", badge: "Wakil Sekjen" },
+  { role: "Bendahara Umum", name: "Ir. Sri Lestari Wahyuningrum, M.M.", badge: "Bendahara" },
+  { role: "Wakil Bendahara Umum", name: "Drs. Ahmad Syafrin Liputo, M.T.", badge: "Wakil Bendahara" }
+];
+
+const advisory = [
+  { role: "Ketua Dewan Pembina", name: "Prof. Dr. Ir. Bambang Susantono" },
+  { role: "Anggota Dewan Pembina", name: "Dr. Ir. Danang Parikesit, M.Sc." },
+  { role: "Anggota Dewan Pembina", name: "Dr. Ir. Suroyo Alimoeso, M.M." }
+];
+
+const experts = [
+  { role: "Ketua Majelis Pakar", name: "Prof. Dr. Ir. Wimpy Santosa, M.Eng." },
+  { role: "Anggota Majelis Pakar", name: "Prof. Dr. Ir. Ofyar Z. Tamin" },
+  { role: "Anggota Majelis Pakar", name: "Prof. Dr. Ir. Sigit Priyanto, M.Sc." },
+  { role: "Anggota Majelis Pakar", name: "Dr. Ir. Alvinsyah, M.T." }
+];
+
+const divisions = [
+  { name: "Transportasi Jalan", head: "Ir. Siti Maimunah, M.T." },
+  { name: "Transportasi Kereta Api", head: "Dr. Ir. Mohamad Risal Wasal, M.M." },
+  { name: "Transportasi Laut", head: "Dr. Capt. Heru Sutrisno, M.M." },
+  { name: "Transportasi Udara", head: "Capt. Novianto Herupratomo, M.Sc." },
+  { name: "Transportasi Perkotaan & TOD", head: "Dr. Ir. Ade Hartono, M.M." },
+  { name: "Keselamatan Transportasi", head: "Dr. Ir. Ahmad Munawar, M.Sc." },
+  { name: "Logistik & Supply Chain", head: "Dr. Ir. Rudy Hermawan K., M.T." },
+  { name: "Kebijakan & Regulasi", head: "Dr. Ir. Kuncoro Harto Widodo, M.Eng." },
+  { name: "Transportasi Perdesaan & 3T", head: "Ir. Rachmat Nugraha, M.T." },
+  { name: "Riset, Inovasi & Teknologi", head: "Prof. Dr. Ir. Russ Bona Frazila" }
+];
+
+const tentangLinks = [
+  { label: "Sejarah MTI", href: "/sejarah-mti" },
+  { label: "Struktur Organisasi", href: "/struktur-organisasi", active: true },
+  { label: "MTI Wilayah", href: "#" },
+  { label: "Identitas Organisasi", href: "#" }
+];
+
+const aksesItems = [
+  ["Transportasi Publik & Mudik", "Edisi 36", "Mar 2026"],
+  ["Keselamatan Jalan Nasional", "Edisi 35", "Feb 2026"],
+  ["TOD & Kota Berkelanjutan", "Edisi 34", "Jan 2026"],
+  ["Logistik & ODOL", "Edisi 33", "Des 2025"],
+  ["3T & Konektivitas Nusantara", "Edisi 32", "Nov 2025"]
+];
+
+export default function StrukturOrganisasiPage() {
+  return (
+    <main className="dialogPolicyPage">
+      <div className="utilityBar">
+        <div className="wideShell utilityInner">
+          <div className="utilityLeft">
+            <span className="liveDot" />
+            <strong>Selasa, 24 Juni 2026</strong>
+            <span className="divider">.</span>
+            <span>09.00 WIB</span>
+          </div>
+          <div className="utilityRight">
+            <span>secretariat@mti.or.id</span>
+            <a href="https://www.linkedin.com/company/sinergi-mti/">LinkedIn</a>
+            <a href="https://www.instagram.com/masyarakatransportasi/">Instagram</a>
+            <a href="https://twitter.com/sinergi_mti">X</a>
+            <strong>ID</strong>
+            <span>EN</span>
+          </div>
+        </div>
+      </div>
+
+      <section className="masthead">
+        <div className="wideShell mastheadInner">
+          <div className="editionMeta">
+            <span>EDISI HARI INI</span>
+            <p>Wisma Nugra Santana, Jakarta</p>
+          </div>
+          <a className="logoLockup" href="/#" aria-label="MTI home">
+            <img src={IMG.logo} alt="MTI" />
+            <span className="logoFallback">MTI</span>
+            <span>
+              <strong>MTI</strong>
+              <small>Masyarakat Transportasi Indonesia</small>
+            </span>
+          </a>
+          <div className="mastheadTools">
+            <button className="iconButton" type="button" aria-label="Cari">
+              <Search size={18} aria-hidden="true" />
+            </button>
+            <a className="subscribeButton desktopOnly" href="/#newsletter">
+              Berlangganan
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <DialogNav activeItem="Tentang Kami" />
+
+      <section className="tickerBand" aria-label="Berita terkini">
+        <div className="tickerLabel">
+          <span />
+          TERKINI
+        </div>
+        <div className="tickerWindow">
+          <div className="tickerTrack">
+            {[...ticker, ...ticker].map((item, index) => (
+              <span className="tickerItem" key={`${item.tag}-${index}`}>
+                <strong>{item.tag}</strong>
+                {item.text}
+                <i />
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="dialogHero">
+        <img src={IMG.hero} alt="" aria-hidden="true" />
+        <span className="dialogHeroShade" />
+        <div className="wideShell dialogHeroContent">
+          <span className="dialogEyebrow">
+            <Sparkles size={16} aria-hidden="true" />
+            Tentang Kami
+          </span>
+          <h1>Struktur Organisasi MTI</h1>
+          <p>
+            Kepengurusan Masyarakat Transportasi Indonesia periode 2025–2028 hasil Kongres
+            Nasional X yang diselenggarakan di Jakarta pada November 2025.
+          </p>
+          <div className="dialogHeroStats" aria-label="Ringkasan halaman">
+            <span>
+              <strong>2025–2028</strong>
+              Periode kepengurusan
+            </span>
+            <span>
+              <strong>10</strong>
+              Bidang kerja
+            </span>
+            <span>
+              <strong>34</strong>
+              Wilayah aktif
+            </span>
+          </div>
+        </div>
+      </section>
+
+      <section className="wideShell dialogIntroStrip" aria-label="Lembaga pendukung">
+        {["Dewan Pembina", "Majelis Pakar", "Pengurus Pusat", "Bidang Teknis"].map((item) => (
+          <span key={item}>{item}</span>
+        ))}
+      </section>
+
+      <section className="wideShell dialogContentGrid">
+        <div className="dialogFeed">
+          <div className="dialogSectionHead">
+            <span>
+              <Users size={18} aria-hidden="true" />
+              Kepengurusan Pusat
+            </span>
+            <h2>Pengurus MTI periode 2025–2028.</h2>
+          </div>
+
+          {/* Dewan Pembina */}
+          <div className="orgSection">
+            <h3 className="orgSectionTitle">Dewan Pembina</h3>
+            <div className="orgAdvisoryGrid">
+              {advisory.map((p) => (
+                <div className="orgAdvisoryCard" key={p.name}>
+                  <span>{p.role}</span>
+                  <strong>{p.name}</strong>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Majelis Pakar */}
+          <div className="orgSection">
+            <h3 className="orgSectionTitle">Majelis Pakar</h3>
+            <div className="orgAdvisoryGrid">
+              {experts.map((p) => (
+                <div className="orgAdvisoryCard" key={p.name}>
+                  <span>{p.role}</span>
+                  <strong>{p.name}</strong>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Pengurus Harian */}
+          <div className="orgSection">
+            <h3 className="orgSectionTitle">Pengurus Harian</h3>
+            <div className="orgLeaderGrid">
+              {leadership.map((p) => (
+                <div className="orgLeaderCard" key={p.role}>
+                  <span className="orgBadge">{p.badge}</span>
+                  <div className="orgLeaderBody">
+                    <small>{p.role}</small>
+                    <strong>{p.name}</strong>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Bidang-Bidang */}
+          <div className="orgSection">
+            <h3 className="orgSectionTitle">Bidang Teknis</h3>
+            <div className="orgDivisionGrid">
+              {divisions.map((d, i) => (
+                <div className="orgDivisionCard" key={d.name}>
+                  <span className="orgDivisionNum">Bidang {i + 1}</span>
+                  <strong>{d.name}</strong>
+                  <small>{d.head}</small>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <aside className="dialogSidebar" aria-label="Tentang MTI">
+          <section className="dialogSidePanel highlight">
+            <img src={IMG.akses36} alt="Akses Nusantara Edisi 36" />
+            <div>
+              <span>Publikasi</span>
+              <h2>Unduh AKSES Nusantara</h2>
+              <p>Publikasi berkala MTI untuk mengikuti isu transportasi nasional dan wilayah.</p>
+            </div>
+          </section>
+
+          <section className="dialogSidePanel">
+            <div className="dialogSideTitle">
+              <Building2 size={18} aria-hidden="true" />
+              <h2>Tentang Kami</h2>
+            </div>
+            <div className="sejarahSideLinks">
+              {tentangLinks.map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  className={link.active ? "sejarahSideLinkActive" : ""}
+                >
+                  {link.label}
+                  <ArrowRight size={13} aria-hidden="true" />
+                </a>
+              ))}
+            </div>
+          </section>
+
+          <section className="dialogSidePanel">
+            <div className="dialogSideTitle">
+              <Download size={18} aria-hidden="true" />
+              <h2>Arsip AKSES</h2>
+            </div>
+            <div className="aksesDownloadList">
+              {aksesItems.map(([title, edition, date]) => (
+                <a href="/aksesnusantara" key={`${title}-${edition}`}>
+                  <span>
+                    <strong>{title}</strong>
+                    <small>{edition}</small>
+                  </span>
+                  <em>{date}</em>
+                </a>
+              ))}
+            </div>
+          </section>
+
+          <section className="dialogSidePanel contact">
+            <span>Sinergi MTI</span>
+            <h2>Terhubung dengan sekretariat MTI.</h2>
+            <p>
+              Untuk informasi keanggotaan, kolaborasi, dan agenda organisasi, hubungi sekretariat
+              kami.
+            </p>
+            <a href="mailto:secretariat@mti.or.id">
+              secretariat@mti.or.id
+              <ArrowRight size={15} aria-hidden="true" />
+            </a>
+          </section>
+        </aside>
+      </section>
+
+      <section className="mediaNewsBand">
+        <div className="wideShell mediaNewsBandInner">
+          <div className="mediaNewsBandText">
+            <span>Organisasi Profesi</span>
+            <h2>Digerakkan oleh para pakar, akademisi, dan praktisi transportasi Indonesia.</h2>
+          </div>
+          <div className="mediaNewsBandDesc">
+            <p>
+              Kepengurusan MTI mencerminkan keberagaman keahlian di bidang transportasi — dari
+              teknik, kebijakan publik, logistik, hingga manajemen — bersinergi untuk mendorong
+              pembangunan transportasi nasional yang aman, merata, dan berkelanjutan.
+            </p>
+          </div>
+          <div className="mediaNewsBandIcon">
+            <Users size={88} strokeWidth={0.8} aria-hidden="true" />
+          </div>
+        </div>
+      </section>
+
+      <footer className="footer">
+        <div className="wideShell footerGrid">
+          <div>
+            <div className="footerBrand">
+              <img src={IMG.logo} alt="MTI" />
+              <span>
+                <strong>MTI</strong>
+                <small>Masyarakat Transportasi Indonesia</small>
+              </span>
+            </div>
+            <p>
+              Organisasi profesi yang menghimpun pakar, akademisi, praktisi, dan birokrat untuk
+              pembangunan transportasi nasional yang berkelanjutan.
+            </p>
+            <p className="address">
+              Wisma Nugra Santana 13th Floor, Jl. Jend. Sudirman Kav 7-8, Karet Tengsin, Jakarta.
+            </p>
+          </div>
+          <FooterLinks
+            title="Kegiatan"
+            items={["Dialog & Sinergi Kebijakan", "MTI Dalam Berita", "Jalan-Jalan", "Rekomendasi Kebijakan"]}
+          />
+          <FooterLinks title="Tentang" items={["Sejarah MTI", "Struktur Organisasi", "MTI Wilayah", "Identitas Organisasi"]} />
+          <FooterLinks title="Program" items={["16th EASTS Conference", "AKSES Nusantara", "AKSES Utama", "Opini"]} />
+        </div>
+        <div className="footerBottom">
+          <div className="wideShell">
+            <span>Masyarakat Transportasi Indonesia &copy; 2026. All rights reserved.</span>
+            <span>
+              <a href="/">Beranda</a>
+              <a href="mailto:secretariat@mti.or.id">Kontak</a>
+            </span>
+          </div>
+        </div>
+      </footer>
+    </main>
+  );
+}
+
+function FooterLinks({ title, items }) {
+  return (
+    <div className="footerLinks">
+      <h3>{title}</h3>
+      {items.map((item) => (
+        <a href={footerHref(item)} key={item}>
+          {item}
+        </a>
+      ))}
+    </div>
+  );
+}
+
+function footerHref(item) {
+  if (item === "Dialog & Sinergi Kebijakan") return "/dialog-kebijakan";
+  if (item === "MTI Dalam Berita") return "/mti-dalam-berita";
+  if (item === "Jalan-Jalan") return "/mti-wilayah/jalan-jalan";
+  if (item === "16th EASTS Conference") return "/easts";
+  if (item === "AKSES Nusantara") return "/aksesnusantara";
+  if (item === "AKSES Utama") return "/aksesutama";
+  if (item === "Opini") return "/opini";
+  if (item === "Sejarah MTI") return "/sejarah-mti";
+  if (item === "Struktur Organisasi") return "/struktur-organisasi";
+  return "#";
+}

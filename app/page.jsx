@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import aksesBanner from "../assets/Banner-AKSES.jpg";
 import newsletterOverlay from "../assets/Banner-AKSES 2.png";
+import { homeNews } from "./berita/news-data";
 
 const IMG = {
   logo: "https://mti.or.id/wp-content/uploads/2023/01/cropped-cropped-MTI_LOGO_PNG-1-270x270.png",
@@ -31,15 +32,34 @@ const navItems = [
     children: [
       { label: "Dialog dan Sinergi Kebijakan", href: "/dialog-kebijakan" },
       { label: "MTI Dalam Berita", href: "/mti-dalam-berita" },
-      { label: "Jalan-Jalan", href: "#" }
+      { label: "Jalan-Jalan", href: "/kegiatan-mti/jalan-jalan" }
     ]
   },
-  { label: "Rekomendasi Kebijakan", href: "#", children: ["Opini", "AKSES Utama"] },
-  { label: "AKSES Nusantara", href: "#akses" },
+  {
+    label: "Rekomendasi Kebijakan",
+    href: "#",
+    children: [
+      { label: "Opini", href: "/opini" },
+      { label: "AKSES Utama", href: "/aksesutama" }
+    ]
+  },
+  { label: "AKSES Nusantara", href: "/aksesnusantara" },
   {
     label: "Tentang Kami",
     href: "#tentang",
-    children: ["Sejarah MTI", "Struktur Organisasi", "MTI Wilayah", "Identitas Organisasi"]
+    children: [
+      { label: "Sejarah MTI", href: "/sejarah-mti" },
+      { label: "Struktur Organisasi", href: "/struktur-organisasi" },
+      {
+        label: "MTI Wilayah",
+        href: "/struktur-mti-wilayah",
+        children: [
+          { label: "Struktur MTI Wilayah", href: "/struktur-mti-wilayah" },
+          { label: "Kegiatan Wilayah", href: "/mti-wilayah/jalan-jalan" }
+        ]
+      },
+      { label: "Identitas Organisasi", href: "/identitas-organisasi" }
+    ]
   }
 ];
 
@@ -51,66 +71,7 @@ const ticker = [
   { tag: "WILAYAH", text: "Pengukuhan pengurus MTI Wilayah Sumatera Utara" }
 ];
 
-const allNews = [
-  {
-    id: "n1",
-    cat: "Berita",
-    group: "Berita",
-    img: IMG.jasa,
-    title: "Hadapi Mudik Lebaran 2026, Jasa Raharja Kumpulkan Pakar Transportasi MTI",
-    date: "18 Mar 2026",
-    excerpt:
-      "PT Jasa Raharja menggelar forum Ngobrol Santai Bersama Pakar Transportasi membahas kesiapan arus mudik."
-  },
-  {
-    id: "n2",
-    cat: "Dialog",
-    group: "Berita",
-    img: IMG.bkt,
-    title: "MTI dan BKT Bahas Pro-Kontra Pembatasan Angkutan Barang Mudik 2026",
-    date: "15 Mar 2026",
-    excerpt:
-      "MTI bertemu Badan Kebijakan Transportasi membahas keseimbangan arus mudik dan rantai pasok logistik."
-  },
-  {
-    id: "n3",
-    cat: "Berita",
-    group: "Berita",
-    img: IMG.media1,
-    title: "MTI Gelar Buka Puasa Bersama, Sampai Rekomendasi Mudik 2026",
-    date: "15 Mar 2026",
-    excerpt:
-      "Buka puasa bersama sekaligus merumuskan rekomendasi penyelenggaraan mudik 2026 yang lebih aman."
-  },
-  {
-    id: "n4",
-    cat: "Sinergi",
-    group: "Sinergi",
-    img: IMG.media2,
-    title: "Sukses Gelar Konferensi EASTS 2025 di Surakarta",
-    date: "2025",
-    excerpt:
-      "Konferensi EASTS 2025 diikuti lebih dari 800 peserta dari dalam dan luar negeri sebagai bukti sinergi MTI."
-  },
-  {
-    id: "n5",
-    cat: "Sinergi",
-    group: "Sinergi",
-    img: IMG.menhub,
-    title: "Kerjasama MTI, DJKA dan Rail Metro Asia 2024",
-    date: "2024",
-    excerpt: "MTI dan DJKA menjadi co-organizer paviliun Indonesia di Rail Metro Asia 2024."
-  },
-  {
-    id: "n6",
-    cat: "Sinergi",
-    group: "Sinergi",
-    img: IMG.jasa,
-    title: "Kolaborasi MTI dan PTDI-STTD dalam Pendidikan Vokasi",
-    date: "2024",
-    excerpt: "Kolaborasi penelitian, publikasi, dan program magang bersama PTDI-STTD."
-  }
-];
+const allNews = homeNews;
 
 const heroSide = [
   {
@@ -160,7 +121,7 @@ const regions = [
   }
 ];
 
-const signatureTags = ["Policy Radar", "Regional Pulse", "Data Watch", "Public Impact"];
+const signatureTags = ["Kegiatan MTI", "Dialog Kebijakan", "Kabar Wilayah", "Publikasi AKSES"];
 
 const catStyles = {
   Berita: { bg: "#ececf9", color: "#4647ae" },
@@ -187,6 +148,7 @@ function formatTime(date) {
 export default function Home() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(null);
+  const [openSubLabel, setOpenSubLabel] = useState(null);
   const [filter, setFilter] = useState("Semua");
   const [now, setNow] = useState(null);
   const [nlDone, setNlDone] = useState(false);
@@ -281,9 +243,9 @@ export default function Home() {
 
       <header className="navStrip">
         <div className="wideShell navInner">
-          <nav className="desktopNav" aria-label="Navigasi utama" onMouseLeave={() => setOpenDropdown(null)}>
+          <nav className="desktopNav" aria-label="Navigasi utama" onMouseLeave={() => { setOpenDropdown(null); setOpenSubLabel(null); }}>
             {navItems.map((item, index) => (
-              <div className="navItem" key={item.label} onMouseEnter={() => setOpenDropdown(index)}>
+              <div className="navItem" key={item.label} onMouseEnter={() => { setOpenDropdown(index); setOpenSubLabel(null); }}>
                 <a className={item.active ? "active" : ""} href={item.href}>
                   {item.badge ? <span className="navBadge" /> : null}
                   {item.label}
@@ -292,17 +254,31 @@ export default function Home() {
                 {item.children && openDropdown === index ? (
                   <div className="dropdownPanel">
                     {item.children.map((child) => (
-                      <a href={child.href || "#"} key={child.label || child}>
-                        <span />
-                        {child.label || child}
-                      </a>
+                      <div
+                        className="navDropItem"
+                        key={child.label || child}
+                        onMouseEnter={() => setOpenSubLabel(child.label || child)}
+                      >
+                        <a href={child.href || "#"}>
+                          <span />
+                          {child.label || child}
+                          {child.children ? <ChevronDown size={11} aria-hidden="true" /> : null}
+                        </a>
+                        {child.children && openSubLabel === (child.label || child) ? (
+                          <div className="navSubDropdown">
+                            {child.children.map((sub) => (
+                              <a key={sub.label} href={sub.href || "#"}>{sub.label}</a>
+                            ))}
+                          </div>
+                        ) : null}
+                      </div>
                     ))}
                   </div>
                 ) : null}
               </div>
             ))}
           </nav>
-          <a className="aksesLink desktopOnly" href="#akses">
+          <a className="aksesLink desktopOnly" href="/aksesnusantara">
             AKSES Nusantara Edisi 36
             <ArrowRight size={14} aria-hidden="true" />
           </a>
@@ -354,16 +330,16 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="signatureSection" aria-label="Ciri khas newsroom MTI">
+      <section className="signatureSection" aria-label="Sorotan beranda MTI">
         <div className="wideShell signatureGrid">
           <div className="signatureCopy">
-            <span className="signatureKicker">MTI Signature Desk</span>
-            <h2>Ruang kurasi isu transportasi nasional.</h2>
+            <span className="signatureKicker">Sorotan Beranda</span>
+            <h2>Kabar transportasi yang perlu diikuti.</h2>
             <p>
-              Setiap kabar dibaca dari sudut kebijakan, wilayah, data, dan dampak publik agar
-              newsroom MTI terasa tajam, kredibel, dan punya identitas sendiri.
+              Beranda MTI merangkum kegiatan, dialog kebijakan, kabar wilayah, dan publikasi
+              agar pembaca cepat menemukan isu utama yang sedang dibahas.
             </p>
-            <div className="signatureTags" aria-label="Fokus editorial">
+            <div className="signatureTags" aria-label="Fokus beranda">
               {signatureTags.map((tag) => (
                 <span key={tag}>{tag}</span>
               ))}
@@ -374,35 +350,35 @@ export default function Home() {
             <div className="boardHeader">
               <img src={IMG.logo} alt="" />
               <span>
-                <strong>Transport Intelligence</strong>
-                <small>Policy - Region - Media</small>
+                <strong>Catatan Redaksi</strong>
+                <small>Diperbarui berkala</small>
               </span>
             </div>
             <div className="deskPreview">
               <div className="deskPreviewMain">
-                <span>Editorial Brief</span>
-                <strong>Kebijakan transportasi nasional</strong>
-                <p>Analisis singkat, konteks wilayah, dan dampak publik.</p>
+                <span>Fokus pekan ini</span>
+                <strong>Mudik, layanan publik, dan transportasi wilayah</strong>
+                <p>Disusun dari agenda MTI, berita terbaru, dan masukan pengurus wilayah.</p>
               </div>
               <div className="deskPreviewRail">
-                <span>Kebijakan</span>
+                <span>Kegiatan</span>
+                <span>Berita</span>
                 <span>Wilayah</span>
-                <span>Media</span>
-                <span>Publik</span>
+                <span>Publikasi</span>
               </div>
             </div>
             <div className="issueStack">
               <span>
                 <strong>01</strong>
-                Prioritas transportasi nasional
+                Dialog kebijakan dan rekomendasi
               </span>
               <span>
                 <strong>02</strong>
-                Rekomendasi mudik dan logistik
+                Kabar kegiatan MTI pusat dan wilayah
               </span>
               <span>
                 <strong>03</strong>
-                Suara wilayah dan komunitas
+                Publikasi AKSES Nusantara
               </span>
             </div>
           </div>
@@ -488,7 +464,7 @@ export default function Home() {
               </span>
             </a>
           ))}
-          <a className="journalCard" href="#akses">
+          <a className="journalCard" href="/aksesnusantara">
             <small>Jurnal Berkala</small>
             <strong>
               AKSES Nusantara
@@ -525,7 +501,7 @@ export default function Home() {
 
         <div className="newsGrid">
           {news.map((item) => (
-            <a className="articleCard riseCard" href="#" key={item.id}>
+            <a className="articleCard riseCard" href={item.href} key={item.id}>
               <div className="articleImage">
                 <img src={item.img} alt="" />
                 <span style={{ background: item.tagBg, color: item.tagColor }}>{item.cat}</span>
@@ -717,7 +693,8 @@ function FooterLinks({ title, items }) {
 function footerHref(item) {
   if (item === "Dialog & Sinergi Kebijakan") return "/dialog-kebijakan";
   if (item === "MTI Dalam Berita") return "/mti-dalam-berita";
+  if (item === "Jalan-Jalan") return "/kegiatan-mti/jalan-jalan";
   if (item === "16th EASTS Conference") return "/easts";
-  if (item === "AKSES Nusantara") return "#akses";
+  if (item === "AKSES Nusantara") return "/aksesnusantara";
   return "#";
 }

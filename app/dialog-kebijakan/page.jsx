@@ -6,6 +6,7 @@ import {
   Search,
   Sparkles
 } from "lucide-react";
+import DialogNav from "../components/DialogNav";
 
 export const metadata = {
   title: "Dialog dan Sinergi Kebijakan | MTI",
@@ -26,14 +27,6 @@ const IMG = {
   akses36: "https://mti.or.id/wp-content/uploads/2026/04/36.jpg"
 };
 
-const navItems = [
-  { label: "16th EASTS Conference", href: "/easts", badge: true },
-  { label: "Beranda", href: "/#" },
-  { label: "Kegiatan MTI", href: "/#berita", active: true },
-  { label: "Rekomendasi Kebijakan", href: "/#" },
-  { label: "AKSES Nusantara", href: "/#akses" },
-  { label: "Tentang Kami", href: "/#tentang" }
-];
 
 const ticker = [
   { tag: "KEBIJAKAN", text: "Menhub paparkan lima prioritas transportasi nasional di Kongres X MTI" },
@@ -170,24 +163,7 @@ export default function DialogKebijakanPage() {
         </div>
       </section>
 
-      <header className="navStrip">
-        <div className="wideShell navInner">
-          <nav className="desktopNav dialogDesktopNav" aria-label="Navigasi utama">
-            {navItems.map((item) => (
-              <div className="navItem" key={item.label}>
-                <a className={item.active ? "active" : ""} href={item.href}>
-                  {item.badge ? <span className="navBadge" /> : null}
-                  {item.label}
-                </a>
-              </div>
-            ))}
-          </nav>
-          <a className="aksesLink desktopOnly" href="/#akses">
-            AKSES Nusantara Edisi 36
-            <ArrowRight size={14} aria-hidden="true" />
-          </a>
-        </div>
-      </header>
+      <DialogNav activeItem="Kegiatan MTI" />
 
       <section className="tickerBand" aria-label="Berita terkini">
         <div className="tickerLabel">
@@ -311,7 +287,7 @@ export default function DialogKebijakanPage() {
             </div>
             <div className="aksesDownloadList">
               {aksesItems.map(([title, edition, date]) => (
-                <a href="/#akses" key={`${title}-${edition}`}>
+                <a href="/aksesnusantara" key={`${title}-${edition}`}>
                   <span>
                     <strong>{title}</strong>
                     <small>{edition}</small>
@@ -404,7 +380,12 @@ function FooterLinks({ title, items }) {
 function footerHref(item) {
   if (item === "Dialog & Sinergi Kebijakan") return "/dialog-kebijakan";
   if (item === "MTI Dalam Berita") return "/mti-dalam-berita";
+  if (item === "Jalan-Jalan") return "/kegiatan-mti/jalan-jalan";
   if (item === "16th EASTS Conference") return "/easts";
-  if (item === "AKSES Nusantara") return "/#akses";
+  if (item === "AKSES Nusantara") return "/aksesnusantara";
+  if (item === "AKSES Utama") return "/aksesutama";
+  if (item === "Opini") return "/opini";
+  if (item === "Sejarah MTI") return "/sejarah-mti";
+  if (item === "Struktur Organisasi") return "/struktur-organisasi";
   return "#";
 }

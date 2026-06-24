@@ -1,32 +1,30 @@
 import {
   ArrowRight,
+  BookOpen,
   CalendarDays,
-  Compass,
   Download,
-  MapPin,
-  Newspaper,
+  Layers,
   Search,
   Sparkles
 } from "lucide-react";
-import DialogNav from "../../components/DialogNav";
+import DialogNav from "../components/DialogNav";
 
 export const metadata = {
-  title: "Jalan-Jalan | MTI",
+  title: "AKSES Nusantara | MTI",
   description:
-    "Halaman Jalan-Jalan MTI berisi cerita mobilitas wilayah, transportasi gratis, wisata, dan pengalaman perjalanan."
+    "AKSES Nusantara adalah publikasi berkala Masyarakat Transportasi Indonesia yang merangkum isu transportasi nasional, kabar wilayah, opini pakar, dan agenda kebijakan setiap bulan."
 };
 
 const IMG = {
   logo: "https://mti.or.id/wp-content/uploads/2023/01/cropped-cropped-MTI_LOGO_PNG-1-270x270.png",
-  hero: "https://mti.or.id/wp-content/uploads/2023/05/17.jpg",
-  pakpak: "https://mti.or.id/wp-content/uploads/2026/03/WhatsApp-Image-2026-02-16-at-10.05.36.jpeg",
-  sragen: "https://mti.or.id/wp-content/uploads/2025/10/WhatsApp-Image-2025-10-19-at-06.54.06-1.jpeg",
-  koetaradja: "https://mti.or.id/wp-content/uploads/2025/10/WhatsApp-Image-2025-10-22-at-18.20.25.jpeg",
-  bali: "https://mti.or.id/wp-content/uploads/2023/05/yudi-haryasa-aMvn52M6P3w-unsplash-scaled.jpg",
-  restArea: "https://mti.or.id/wp-content/uploads/2023/05/WhatsApp-Image-2023-04-16-at-14.20.40.jpeg",
-  akses36: "https://mti.or.id/wp-content/uploads/2026/04/36.jpg"
+  hero: "https://mti.or.id/wp-content/uploads/2023/07/Dialog-dan-Sinergi-2.jpg",
+  cover36: "https://mti.or.id/wp-content/uploads/2026/04/36.jpg",
+  cover35: "https://mti.or.id/wp-content/uploads/2026/03/WhatsApp-Image-2026-03-11-at-20.25.20-scaled.jpeg",
+  cover34: "https://mti.or.id/wp-content/uploads/2026/03/WhatsApp-Image-2026-03-09-at-17.23.00.jpeg",
+  cover33: "https://mti.or.id/wp-content/uploads/2026/02/hq720.jpg",
+  cover32: "https://mti.or.id/wp-content/uploads/2025/11/1761963524570.jpg",
+  cover31: "https://mti.or.id/wp-content/uploads/2025/10/WhatsApp-Image-2025-10-31-at-20.42.11.jpeg"
 };
-
 
 
 const ticker = [
@@ -36,70 +34,74 @@ const ticker = [
   { tag: "JURNAL", text: "AKSES Nusantara Edisi 36 Maret 2026 telah terbit" }
 ];
 
-const articles = [
+const featuredEdition = {
+  edisi: "Edisi 36",
+  bulan: "Maret 2026",
+  image: IMG.cover36,
+  href: "https://mti.or.id/aksesnusantara/",
+  tema: "Transportasi Publik & Mudik 2026",
+  description:
+    "Edisi Maret 2026 merangkum persiapan mudik Lebaran 2026, rekomendasi MTI untuk pembatasan angkutan barang, analisis simpul transportasi, dan kabar kegiatan wilayah dari seluruh Indonesia.",
+  highlights: [
+    "Rekomendasi mudik Lebaran 2026",
+    "Pembatasan angkutan barang: pro dan kontra",
+    "Kabar wilayah: MTI Sumatera & Jawa",
+    "Opini: Jangan hanya bertumpu di jalan tol"
+  ]
+};
+
+const archiveEditions = [
   {
-    title: "Bus Sekolah Di Pakpak Bharat: Solusi Jarak Jauh Di Kaki Bukit Barisan",
-    date: "30 Januari 2026",
-    tag: "Transportasi Pelajar",
-    image: IMG.pakpak,
-    href: "https://mti.or.id/bus-sekolah-di-pakpak-bharat-solusi-jarak-jauh-di-kaki-bukit-barisan/",
-    excerpt:
-      "Kabupaten Pakpak Bharat berada di dataran tinggi Sumatera Utara, tepat di kaki Bukit Barisan. Layanan bus sekolah menjadi solusi mobilitas jarak jauh bagi pelajar."
+    edisi: "Edisi 35",
+    bulan: "Februari 2026",
+    image: IMG.cover35,
+    href: "https://mti.or.id/aksesnusantara/",
+    tema: "Mobilitas Kota & Motor"
   },
   {
-    title: "Bus Gratis Sragen: Dari Hibah Instansi, Untuk Pendidikan Anak Bangsa",
-    date: "31 Oktober 2025",
-    tag: "Bus Gratis",
-    image: IMG.sragen,
-    href: "https://mti.or.id/bus-gratis-sragen-dari-hibah-instansi-untuk-pendidikan-anak-bangsa/",
-    excerpt:
-      "Inovasi bus gratis Sragen sejalan dengan visi layanan publik yang inklusif, berdaya guna, dan mendukung akses pendidikan anak bangsa."
+    edisi: "Edisi 34",
+    bulan: "Januari 2026",
+    image: IMG.cover34,
+    href: "https://mti.or.id/aksesnusantara/",
+    tema: "Transportasi Perdesaan & 3T"
   },
   {
-    title: "Bus Trans Koetaradja: Bukti Nyata Transportasi Gratis Itu Ada",
-    date: "31 Oktober 2025",
-    tag: "Angkutan Umum",
-    image: IMG.koetaradja,
-    href: "https://mti.or.id/bus-trans-koetaradja-bukti-nyata-transportasi-gratis-itu-ada/",
-    excerpt:
-      "Bus Trans Koetaradja adalah sistem transportasi umum di Banda Aceh dan Aceh Besar yang menunjukkan bahwa transportasi gratis dapat menjadi layanan nyata."
+    edisi: "Edisi 33",
+    bulan: "Desember 2025",
+    image: IMG.cover33,
+    href: "https://mti.or.id/aksesnusantara/",
+    tema: "30 Tahun MTI: Membumi & Berdampak"
   },
   {
-    title: "Kolaborasi Pengaturan Obyek Wisata Bali",
-    date: "9 Mei 2023",
-    tag: "Wisata",
-    image: IMG.bali,
-    href: "https://mti.or.id/kolaborasi-pengaturan-obyek-wisata-bali/",
-    excerpt:
-      "Pulau Bali, the Paradise Island, merupakan tujuan wisata utama yang membutuhkan kolaborasi pengaturan mobilitas agar pengalaman wisata tetap tertata."
+    edisi: "Edisi 32",
+    bulan: "November 2025",
+    image: IMG.cover32,
+    href: "https://mti.or.id/aksesnusantara/",
+    tema: "TOD & Transportasi Terintegrasi"
   },
   {
-    title: "Jelajah Kuliner di Rest Area Super Lengkap",
-    date: "9 Mei 2023",
-    tag: "Rest Area",
-    image: IMG.restArea,
-    href: "https://mti.or.id/jelajah-kuliner-di-rest-area-super-lengkap/",
-    excerpt:
-      "Pulang kampung selesai, saatnya kembali ke kota. Rest area yang lengkap dapat menjadi bagian dari pengalaman perjalanan yang lebih nyaman."
+    edisi: "Edisi 31",
+    bulan: "Oktober 2025",
+    image: IMG.cover31,
+    href: "https://mti.or.id/aksesnusantara/",
+    tema: "ODOL & Logistik Nasional"
   }
 ];
 
-const aksesItems = [
-  ["Akses Nusantara Edisi 36", "Maret 2026", "11 April 2026"],
-  ["Akses Nusantara Edisi 35", "Februari 2026", "11 April 2026"],
-  ["Akses Nusantara Edisi 34", "Januari 2026", "24 Februari 2026"],
-  ["Akses Nusantara Edisi 33", "Desember 2025", "24 Februari 2026"],
-  ["Akses Nusantara Edisi 32", "November 2025", "14 November 2025"],
-  ["Akses Nusantara Edisi 31", "Oktober 2025", "14 November 2025"]
+const olderEditions = [
+  ["Edisi 30", "September 2025"],
+  ["Edisi 29", "Agustus 2025"],
+  ["Edisi 28", "Juli 2025"],
+  ["Edisi 27", "Juni 2025"],
+  ["Edisi 26", "Mei 2025"],
+  ["Edisi 25", "April 2025"]
 ];
 
-const focusAreas = ["Transportasi Pelajar", "Bus Gratis", "Wisata dan Mobilitas", "Rest Area"];
+const focusAreas = ["Transportasi Publik", "Kabar Wilayah", "Opini Pakar", "Agenda Kebijakan"];
 
-export default function JalanJalanPage() {
-  const [leadArticle, ...otherArticles] = articles;
-
+export default function AksesNusantaraPage() {
   return (
-    <main className="dialogPolicyPage travelPage">
+    <main className="dialogPolicyPage aksesNusantaraPage">
       <div className="topGradient" />
 
       <div className="utilityBar">
@@ -146,7 +148,7 @@ export default function JalanJalanPage() {
         </div>
       </section>
 
-      <DialogNav activeItem="Kegiatan MTI" />
+      <DialogNav activeItem="AKSES Nusantara" />
 
       <section className="tickerBand" aria-label="Berita terkini">
         <div className="tickerLabel">
@@ -166,37 +168,37 @@ export default function JalanJalanPage() {
         </div>
       </section>
 
-      <section className="dialogHero">
+      <section className="dialogHero aksesNusantaraHero">
         <img src={IMG.hero} alt="" aria-hidden="true" />
         <span className="dialogHeroShade" />
         <div className="wideShell dialogHeroContent">
           <span className="dialogEyebrow">
-            <Compass size={16} aria-hidden="true" />
-            MTI Jalan-Jalan
+            <Sparkles size={16} aria-hidden="true" />
+            AKSES Nusantara
           </span>
-          <h1>Jalan-Jalan</h1>
+          <h1>AKSES Nusantara — Jurnal Transportasi MTI</h1>
           <p>
-            Cerita perjalanan transportasi dari daerah, mulai dari layanan bus pelajar, transportasi
-            gratis, pengaturan destinasi wisata, sampai pengalaman rest area.
+            Publikasi bulanan Masyarakat Transportasi Indonesia yang merangkum isu transportasi
+            nasional, kabar kegiatan wilayah, opini pakar, dan agenda kebijakan terkini.
           </p>
-          <div className="dialogHeroStats" aria-label="Ringkasan halaman">
+          <div className="dialogHeroStats" aria-label="Ringkasan publikasi">
             <span>
-              <strong>5</strong>
-              Cerita perjalanan
+              <strong>36</strong>
+              Edisi terbit
             </span>
             <span>
-              <strong>2023-2026</strong>
-              Arsip wilayah
+              <strong>Bulanan</strong>
+              Frekuensi
             </span>
             <span>
-              <strong>MTI</strong>
-              Jalan-Jalan
+              <strong>2023–2026</strong>
+              Periode arsip
             </span>
           </div>
         </div>
       </section>
 
-      <section className="wideShell dialogIntroStrip" aria-label="Fokus Jalan-Jalan MTI">
+      <section className="wideShell dialogIntroStrip" aria-label="Rubrik AKSES Nusantara">
         {focusAreas.map((item) => (
           <span key={item}>{item}</span>
         ))}
@@ -206,46 +208,64 @@ export default function JalanJalanPage() {
         <div className="dialogFeed">
           <div className="dialogSectionHead">
             <span>
-              <Newspaper size={18} aria-hidden="true" />
-              MTI Jalan-Jalan
+              <Layers size={18} aria-hidden="true" />
+              Edisi Terbaru
             </span>
-            <h2>Catatan mobilitas dari wilayah dan ruang perjalanan.</h2>
+            <h2>AKSES Nusantara Edisi 36 — Maret 2026.</h2>
           </div>
 
-          <article className="dialogLeadArticle">
-            <a href={leadArticle.href}>
+          <article className="dialogLeadArticle aksesNusantaraFeatured">
+            <a href={featuredEdition.href}>
               <div className="dialogLeadImage">
-                <img src={leadArticle.image} alt="" />
-                <span>{leadArticle.tag}</span>
+                <img src={featuredEdition.image} alt="" />
+                <span>{featuredEdition.edisi}</span>
               </div>
               <div className="dialogLeadCopy">
                 <small>
                   <CalendarDays size={14} aria-hidden="true" />
-                  {leadArticle.date}
+                  {featuredEdition.bulan}
                 </small>
-                <h3>{leadArticle.title}</h3>
-                <p>{leadArticle.excerpt}</p>
+                <h3>{featuredEdition.tema}</h3>
+                <p>{featuredEdition.description}</p>
+                <ul className="aksesHighlightList">
+                  {featuredEdition.highlights.map((h) => (
+                    <li key={h}>{h}</li>
+                  ))}
+                </ul>
                 <strong>
-                  Baca Selengkapnya
+                  Baca Edisi 36
                   <ArrowRight size={15} aria-hidden="true" />
                 </strong>
               </div>
             </a>
           </article>
 
-          <div className="dialogArticleList">
-            {otherArticles.map((article) => (
-              <article className="dialogArticle" key={article.title}>
-                <a href={article.href}>
-                  <img src={article.image} alt="" />
-                  <div>
-                    <span>{article.tag}</span>
-                    <h3>{article.title}</h3>
-                    <p>{article.excerpt}</p>
+          <div className="dialogSectionHead" style={{ marginTop: 36 }}>
+            <span>
+              <BookOpen size={18} aria-hidden="true" />
+              Arsip Edisi
+            </span>
+            <h2>Edisi-edisi sebelumnya.</h2>
+          </div>
+
+          <div className="aksesEditionGrid">
+            {archiveEditions.map((edition) => (
+              <article className="aksesEditionCard" key={edition.edisi}>
+                <a href={edition.href}>
+                  <div className="aksesEditionCover">
+                    <img src={edition.image} alt="" />
+                    <span>{edition.edisi}</span>
+                  </div>
+                  <div className="aksesEditionBody">
                     <small>
-                      {article.date}
-                      <ArrowRight size={14} aria-hidden="true" />
+                      <CalendarDays size={12} aria-hidden="true" />
+                      {edition.bulan}
                     </small>
+                    <h3>{edition.tema}</h3>
+                    <em>
+                      Baca Edisi
+                      <ArrowRight size={13} aria-hidden="true" />
+                    </em>
                   </div>
                 </a>
               </article>
@@ -253,61 +273,61 @@ export default function JalanJalanPage() {
           </div>
         </div>
 
-        <aside className="dialogSidebar" aria-label="Publikasi dan arsip MTI">
+        <aside className="dialogSidebar" aria-label="Arsip dan informasi AKSES">
           <section className="dialogSidePanel highlight">
-            <img src={IMG.akses36} alt="Akses Nusantara Edisi 36" />
+            <img src={IMG.cover36} alt="AKSES Nusantara Edisi 36" />
             <div>
-              <span>Publikasi</span>
-              <h2>Unduh AKSES Nusantara</h2>
-              <p>Publikasi berkala MTI untuk mengikuti isu transportasi nasional dan wilayah.</p>
+              <span>Edisi Terbaru</span>
+              <h2>AKSES Nusantara Edisi 36</h2>
+              <p>Maret 2026 — transportasi publik, mudik 2026, dan kabar wilayah MTI.</p>
             </div>
           </section>
 
           <section className="dialogSidePanel">
             <div className="dialogSideTitle">
               <Download size={18} aria-hidden="true" />
-              <h2>Arsip AKSES</h2>
+              <h2>Unduh Edisi Lama</h2>
             </div>
             <div className="aksesDownloadList">
-              {aksesItems.map(([title, edition, date]) => (
-                <a href="/aksesnusantara" key={`${title}-${edition}`}>
+              {olderEditions.map(([edisi, bulan]) => (
+                <a href="https://mti.or.id/aksesnusantara/" key={`${edisi}-${bulan}`}>
                   <span>
-                    <strong>{title}</strong>
-                    <small>{edition}</small>
+                    <strong>AKSES Nusantara {edisi}</strong>
+                    <small>{bulan}</small>
                   </span>
-                  <em>{date}</em>
+                  <em>{bulan}</em>
                 </a>
               ))}
             </div>
           </section>
 
           <section className="dialogSidePanel contact">
-            <span>Ruang Wilayah</span>
-            <h2>Jalan-Jalan membaca transportasi lewat pengalaman nyata.</h2>
+            <span>Tentang AKSES Nusantara</span>
+            <h2>Ikuti perkembangan transportasi Indonesia setiap bulan.</h2>
             <p>
-              Dari bus sekolah sampai rest area, rubrik ini melihat layanan transportasi dari sisi
-              pengguna, wilayah, dan pengalaman perjalanan.
+              AKSES Nusantara diterbitkan MTI sebagai media kurasi isu transportasi nasional dan
+              wilayah yang dapat diunduh secara bebas oleh publik.
             </p>
-            <a href="/#tentang">
-              Lihat MTI Wilayah
+            <a href="mailto:secretariat@mti.or.id">
+              Berlangganan AKSES
               <ArrowRight size={15} aria-hidden="true" />
             </a>
           </section>
         </aside>
       </section>
 
-      <section className="dialogPolicyBand travelBand">
+      <section className="dialogPolicyBand mediaNewsBand">
         <div className="wideShell dialogPolicyBandInner">
           <div>
-            <span>Travel Notes</span>
-            <h2>Transportasi terasa nyata saat dibaca dari perjalanan orang dan daerah.</h2>
+            <span>Publikasi Berkala</span>
+            <h2>Setiap bulan, satu edisi merangkum arah transportasi Indonesia.</h2>
           </div>
           <p>
-            Jalan-Jalan mengajak pembaca melihat layanan transportasi sebagai pengalaman harian:
-            bagaimana orang berangkat sekolah, berwisata, berpindah, dan berhenti sejenak di jalur
-            perjalanan.
+            Dari kabar wilayah, opini pakar, kebijakan mudik, logistik, sampai perkeretaapian —
+            AKSES Nusantara hadir setiap bulan sebagai referensi cepat bagi pemangku kepentingan
+            transportasi nasional.
           </p>
-          <MapPin size={48} aria-hidden="true" />
+          <BookOpen size={48} aria-hidden="true" />
         </div>
       </section>
 
@@ -331,7 +351,7 @@ export default function JalanJalanPage() {
           </div>
           <FooterLinks
             title="Kegiatan"
-            items={["Dialog & Sinergi Kebijakan", "MTI Dalam Berita", "Jalan-Jalan", "Rekomendasi Kebijakan"]}
+            items={["Dialog & Sinergi Kebijakan", "MTI Dalam Berita", "Jalan-Jalan"]}
           />
           <FooterLinks title="Tentang" items={["Sejarah MTI", "Struktur Organisasi", "MTI Wilayah", "Identitas Organisasi"]} />
           <FooterLinks title="Program" items={["16th EASTS Conference", "AKSES Nusantara", "AKSES Utama", "Opini"]} />
