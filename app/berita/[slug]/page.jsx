@@ -1,4 +1,4 @@
-import { notFound } from "next/navigation";
+import { notFound } from 'next/navigation';
 import {
   ArrowLeft,
   ArrowRight,
@@ -7,27 +7,26 @@ import {
   Search,
   Tag,
   UserRound
-} from "lucide-react";
-import DialogNav from "../../components/DialogNav";
-import { getNewsBySlug, homeNews } from "../news-data";
+} from 'lucide-react';
+import DialogNav from '../../components/DialogNav';
+import { getBerita } from '../../../lib/cms';
 
 const IMG = {
-  logo: "https://mti.or.id/wp-content/uploads/2023/01/cropped-cropped-MTI_LOGO_PNG-1-270x270.png"
+  logo: 'https://mti.or.id/wp-content/uploads/2023/01/cropped-cropped-MTI_LOGO_PNG-1-270x270.png'
 };
 
-
-export function generateStaticParams() {
-  return homeNews.map((item) => ({ slug: item.slug }));
+export async function generateStaticParams() {
+  const berita = await getBerita();
+  return berita.map((item) => ({ slug: item.slug }));
 }
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
-  const article = getNewsBySlug(slug);
+  const berita = await getBerita();
+  const article = berita.find((item) => item.slug === slug);
 
   if (!article) {
-    return {
-      title: "Berita Tidak Ditemukan | MTI"
-    };
+    return { title: 'Berita Tidak Ditemukan | MTI' };
   }
 
   return {
@@ -38,13 +37,14 @@ export async function generateMetadata({ params }) {
 
 export default async function NewsDetailPage({ params }) {
   const { slug } = await params;
-  const article = getNewsBySlug(slug);
+  const berita = await getBerita();
+  const article = berita.find((item) => item.slug === slug);
 
   if (!article) {
     notFound();
   }
 
-  const relatedArticles = homeNews
+  const relatedArticles = berita
     .filter((item) => item.slug !== article.slug)
     .filter((item) => item.group === article.group || item.cat === article.cat)
     .slice(0, 3);
@@ -129,8 +129,8 @@ export default async function NewsDetailPage({ params }) {
         <article className="newsDetailArticle">
           <img className="newsDetailImage" src={article.img} alt="" />
           <div className="newsDetailBody">
-            {article.content.map((paragraph) => (
-              <p key={paragraph}>{paragraph}</p>
+            {(article.content || []).map((paragraph, i) => (
+              <p key={i}>{paragraph}</p>
             ))}
           </div>
         </article>
@@ -142,7 +142,7 @@ export default async function NewsDetailPage({ params }) {
               <h2>Topik</h2>
             </div>
             <div className="newsDetailTopics">
-              {article.highlights.map((item) => (
+              {(article.highlights || []).map((item) => (
                 <span key={item}>{item}</span>
               ))}
             </div>
@@ -151,7 +151,10 @@ export default async function NewsDetailPage({ params }) {
           {article.sourceUrl ? (
             <section className="newsDetailPanel source">
               <span>Sumber Artikel</span>
-              <p>Halaman ini dibuat sebagai detail internal beranda. Tautan sumber asli tetap disimpan.</p>
+              <p>
+                Halaman ini dibuat sebagai detail internal beranda. Tautan sumber asli tetap
+                disimpan.
+              </p>
               <a href={article.sourceUrl}>
                 Buka sumber
                 <ArrowRight size={15} aria-hidden="true" />
@@ -197,9 +200,18 @@ export default async function NewsDetailPage({ params }) {
               Wisma Nugra Santana 13th Floor, Jl. Jend. Sudirman Kav 7-8, Karet Tengsin, Jakarta.
             </p>
           </div>
-          <FooterLinks title="Kegiatan" items={["Dialog & Sinergi Kebijakan", "MTI Dalam Berita", "Jalan-Jalan"]} />
-          <FooterLinks title="Tentang" items={["Sejarah MTI", "Struktur Organisasi", "MTI Wilayah"]} />
-          <FooterLinks title="Program" items={["16th EASTS Conference", "AKSES Nusantara", "AKSES Utama"]} />
+          <FooterLinks
+            title="Kegiatan"
+            items={['Dialog & Sinergi Kebijakan', 'MTI Dalam Berita', 'Jalan-Jalan']}
+          />
+          <FooterLinks
+            title="Tentang"
+            items={['Sejarah MTI', 'Struktur Organisasi', 'MTI Wilayah']}
+          />
+          <FooterLinks
+            title="Program"
+            items={['16th EASTS Conference', 'AKSES Nusantara', 'AKSES Utama']}
+          />
         </div>
         <div className="footerBottom">
           <div className="wideShell">
@@ -229,10 +241,10 @@ function FooterLinks({ title, items }) {
 }
 
 function footerHref(item) {
-  if (item === "Dialog & Sinergi Kebijakan") return "/dialog-kebijakan";
-  if (item === "MTI Dalam Berita") return "/mti-dalam-berita";
-  if (item === "Jalan-Jalan") return "/kegiatan-mti/jalan-jalan";
-  if (item === "16th EASTS Conference") return "/easts";
-  if (item === "AKSES Nusantara") return "/#akses";
-  return "#";
+  if (item === 'Dialog & Sinergi Kebijakan') return '/dialog-kebijakan';
+  if (item === 'MTI Dalam Berita') return '/mti-dalam-berita';
+  if (item === 'Jalan-Jalan') return '/kegiatan-mti/jalan-jalan';
+  if (item === '16th EASTS Conference') return '/easts';
+  if (item === 'AKSES Nusantara') return '/#akses';
+  return '#';
 }
