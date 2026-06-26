@@ -75,26 +75,36 @@ alter table public.media enable row level security;
 
 -- ============ POLICY: SELECT PUBLIK (hanya konten tayang) ============
 
+drop policy if exists "berita public read" on public.berita;
 create policy "berita public read" on public.berita
   for select using (published = true);
+drop policy if exists "jurnal public read" on public.jurnal;
 create policy "jurnal public read" on public.jurnal
   for select using (visible = true);
+drop policy if exists "artikel public read" on public.artikel;
 create policy "artikel public read" on public.artikel
   for select using (visible = true);
+drop policy if exists "beranda public read" on public.beranda;
 create policy "beranda public read" on public.beranda
   for select using (true);
+drop policy if exists "media public read" on public.media;
 create policy "media public read" on public.media
   for select using (true);
 
 -- ============ POLICY: ADMIN (terautentikasi) AKSES PENUH ============
 
+drop policy if exists "berita admin all" on public.berita;
 create policy "berita admin all" on public.berita
   for all using (auth.role() = 'authenticated') with check (auth.role() = 'authenticated');
+drop policy if exists "jurnal admin all" on public.jurnal;
 create policy "jurnal admin all" on public.jurnal
   for all using (auth.role() = 'authenticated') with check (auth.role() = 'authenticated');
+drop policy if exists "artikel admin all" on public.artikel;
 create policy "artikel admin all" on public.artikel
   for all using (auth.role() = 'authenticated') with check (auth.role() = 'authenticated');
+drop policy if exists "beranda admin all" on public.beranda;
 create policy "beranda admin all" on public.beranda
   for all using (auth.role() = 'authenticated') with check (auth.role() = 'authenticated');
+drop policy if exists "media admin all" on public.media;
 create policy "media admin all" on public.media
   for all using (auth.role() = 'authenticated') with check (auth.role() = 'authenticated');
