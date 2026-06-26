@@ -3,6 +3,7 @@
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 import { createClient } from '../../lib/supabase/server';
+import { createAdminClient } from '../../lib/supabase/admin';
 
 async function checkAuth() {
   const supabase = await createClient();
@@ -39,6 +40,29 @@ export async function logout() {
   const supabase = await createClient();
   await supabase.auth.signOut();
   redirect('/admin/login');
+}
+
+// ── Upload Gambar ─────────────────────────────────────────────────────────────
+// Upload dijalankan di server pakai service-role (bypass RLS). Token user pakai
+// ES256 yang belum didukung server Storage, jadi upload via browser tidak bisa.
+
+export async function uploadImage(formData) {
+  await checkAuth();
+  const file = formData.get('file');
+  if (!file || typeof file === 'string' || file.size === 0) {
+    return { error: 'File tidak valid.' };
+  }
+  const admin = createAdminClient();
+  const ext = (file.name?.split('.').pop() || 'bin').toLowerCase();
+  const path = `${Date.now()}-${Math.random().toString(36).slice(2, 8)}.${ext}`;
+  const { error } = await admin.storage.from('media').upload(path, file, {
+    contentType: file.type || undefined,
+    cacheControl: '3600',
+    upsert: false
+  });
+  if (error) return { error: error.message };
+  const { data } = admin.storage.from('media').getPublicUrl(path);
+  return { url: data.publicUrl };
 }
 
 // ── Berita ────────────────────────────────────────────────────────────────────

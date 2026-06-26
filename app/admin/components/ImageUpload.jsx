@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { createClient } from '../../../lib/supabase/client';
+import { uploadImage } from '../actions';
 
 export default function ImageUpload({ name, defaultValue = '' }) {
   const [url, setUrl] = useState(defaultValue);
@@ -13,20 +13,15 @@ export default function ImageUpload({ name, defaultValue = '' }) {
     if (!file) return;
     setBusy(true);
     setErr('');
-    const supabase = createClient();
-    const ext = file.name.split('.').pop();
-    const path = `${Date.now()}-${Math.random().toString(36).slice(2, 8)}.${ext}`;
-    const { error } = await supabase.storage.from('media').upload(path, file, {
-      cacheControl: '3600',
-      upsert: false
-    });
-    if (error) {
-      setErr('Upload gagal: ' + error.message);
+    const fd = new FormData();
+    fd.append('file', file);
+    const res = await uploadImage(fd);
+    if (res?.error) {
+      setErr('Upload gagal: ' + res.error);
       setBusy(false);
       return;
     }
-    const { data } = supabase.storage.from('media').getPublicUrl(path);
-    setUrl(data.publicUrl);
+    setUrl(res.url);
     setBusy(false);
   };
 
