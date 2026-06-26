@@ -1,20 +1,9 @@
-import { cookies } from 'next/headers';
-import { redirect } from 'next/navigation';
 import Link from 'next/link';
 import { getBerita, getMedia, getJurnal, getArtikel } from '../../lib/cms';
 
 export const metadata = { title: 'Dashboard - MTI CMS' };
 
-async function requireAuth() {
-  const cookieStore = await cookies();
-  const auth = cookieStore.get('cms-auth');
-  const password = process.env.ADMIN_PASSWORD || 'admin123';
-  if (!auth || auth.value !== password) redirect('/admin/login');
-}
-
 export default async function AdminDashboard() {
-  await requireAuth();
-
   const [berita, media, jurnal, artikel] = await Promise.all([
     getBerita(),
     getMedia(),
