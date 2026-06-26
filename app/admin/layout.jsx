@@ -1,17 +1,11 @@
-import { cookies } from 'next/headers';
-import { redirect } from 'next/navigation';
 import Link from 'next/link';
 import { logout } from './actions';
-
-async function getAuth() {
-  const cookieStore = await cookies();
-  const auth = cookieStore.get('cms-auth');
-  const password = process.env.ADMIN_PASSWORD || 'admin123';
-  return auth && auth.value === password;
-}
+import { createClient } from '../../lib/supabase/server';
 
 export default async function AdminLayout({ children }) {
-  const authed = await getAuth();
+  const supabase = await createClient();
+  const { data: { user } } = await supabase.auth.getUser();
+  const authed = !!user;
 
   return (
     <div className="adminWrap">
@@ -39,9 +33,7 @@ export default async function AdminLayout({ children }) {
           </div>
         </aside>
       )}
-      <main className="adminMain">
-        {children}
-      </main>
+      <main className="adminMain">{children}</main>
     </div>
   );
 }

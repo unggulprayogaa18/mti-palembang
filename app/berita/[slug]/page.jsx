@@ -15,11 +15,6 @@ const IMG = {
   logo: 'https://mti.or.id/wp-content/uploads/2023/01/cropped-cropped-MTI_LOGO_PNG-1-270x270.png'
 };
 
-export async function generateStaticParams() {
-  const berita = await getBerita();
-  return berita.map((item) => ({ slug: item.slug }));
-}
-
 export async function generateMetadata({ params }) {
   const { slug } = await params;
   const berita = await getBerita();

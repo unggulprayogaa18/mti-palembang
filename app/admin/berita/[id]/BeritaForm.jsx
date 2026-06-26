@@ -2,6 +2,7 @@
 
 import { useTransition } from 'react';
 import { saveBeritaItem, addBeritaItem } from '../../actions';
+import ImageUpload from '../../components/ImageUpload';
 
 export default function BeritaForm({ item, id }) {
   const [isPending, startTransition] = useTransition();
@@ -75,11 +76,8 @@ export default function BeritaForm({ item, id }) {
       </div>
 
       <div className="adminFormGroup">
-        <label>URL Gambar</label>
-        <input name="img" type="url" defaultValue={item?.img || ''} placeholder="https://..." />
-        {item?.img && (
-          <img src={item.img} alt="" style={{ marginTop: 8, height: 80, borderRadius: 6, objectFit: 'cover' }} />
-        )}
+        <label>Gambar (upload atau tempel URL)</label>
+        <ImageUpload name="img" defaultValue={item?.img || ''} />
       </div>
 
       <div className="adminFormGroup">

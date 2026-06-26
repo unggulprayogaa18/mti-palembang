@@ -2,6 +2,7 @@
 
 import React, { useState, useTransition } from 'react';
 import { addArtikelItem, saveArtikelItem, deleteArtikelItem, toggleArtikelVisible } from '../actions';
+import ImageUpload from '../components/ImageUpload';
 
 export default function ArtikelForm({ artikel: initialArtikel }) {
   const [artikel, setArtikel] = useState(initialArtikel);
@@ -184,8 +185,8 @@ function ArtikelFields({ item }) {
         <textarea name="konten" defaultValue={defaultKonten} rows={6} />
       </div>
       <div className="adminFormGroup">
-        <label>URL Gambar</label>
-        <input name="gambar" type="url" defaultValue={item?.gambar || ''} placeholder="https://..." />
+        <label>Gambar (upload atau tempel URL)</label>
+        <ImageUpload name="gambar" defaultValue={item?.gambar || ''} />
       </div>
     </>
   );

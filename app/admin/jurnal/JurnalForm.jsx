@@ -2,6 +2,7 @@
 
 import React, { useState, useTransition } from 'react';
 import { addJurnalItem, saveJurnalItem, deleteJurnalItem, toggleJurnalVisible } from '../actions';
+import ImageUpload from '../components/ImageUpload';
 
 export default function JurnalForm({ jurnal: initialJurnal }) {
   const [jurnal, setJurnal] = useState(initialJurnal);
@@ -174,8 +175,8 @@ function JurnalFields({ item }) {
       </div>
       <div className="adminFormRow">
         <div className="adminFormGroup">
-          <label>URL Cover</label>
-          <input name="cover" type="url" defaultValue={item?.cover || ''} placeholder="https://..." />
+          <label>Cover (upload atau tempel URL)</label>
+          <ImageUpload name="cover" defaultValue={item?.cover || ''} />
         </div>
         <div className="adminFormGroup">
           <label>URL Download</label>
